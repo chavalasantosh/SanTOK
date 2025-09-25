@@ -47,7 +47,7 @@ const navigation = [
     id: 'about' as Page,
     name: 'About',
     icon: Info,
-    description: 'Learn about Krishna Tokenizer'
+    description: 'Learn about SanTOK'
   }
 ]
 
@@ -161,7 +161,7 @@ export function Sidebar({ activePage, onPageChange, isOpen, onClose }: SidebarPr
           
           <div className="mt-4 pt-4 border-t">
             <p className="text-xs text-muted-foreground">
-              Krishna Tokenizer v1.0.0
+              SanTOK v1.0.0
             </p>
             <p className="text-xs text-muted-foreground">
               Enterprise-grade text processing

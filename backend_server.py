@@ -1,6 +1,6 @@
 """
-FastAPI Backend Server for Krishna Tokenizer
-Connects the frontend to your existing Python backend files
+FastAPI Backend Server for SanTOK
+Connects the frontend to the Python tokenization engine
 """
 
 from fastapi import FastAPI, HTTPException
@@ -19,7 +19,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 try:
     import krishna_tokenizer as KT
     from krishna_tokenizer import _content_id
-    print("✅ Successfully imported krishna_tokenizer.py")
+    print("✅ Successfully imported engine module")
 except ImportError as e:
     print(f"❌ Error importing krishna_tokenizer.py: {e}")
     sys.exit(1)
@@ -44,7 +44,7 @@ except ImportError as e:
 
 # Initialize FastAPI app
 app = FastAPI(
-    title="Krishna Tokenizer API",
+    title="SanTOK API",
     description="Advanced Text Tokenization System with Multiple Algorithms",
     version="1.0.0"
 )
@@ -181,7 +181,7 @@ def calculate_fingerprint(text: str, tokens: List[str], embedding: bool = False)
 async def root():
     """Health check endpoint"""
     return {
-        "message": "Krishna Tokenizer API is running!",
+        "message": "SanTOK API is running!",
         "version": "1.0.0",
         "available_tokenizers": list(TOKENIZERS.keys())
     }
@@ -401,7 +401,7 @@ async def validate_tokenization(request: TokenizationRequest):
 
 if __name__ == "__main__":
     import uvicorn
-    print("🚀 Starting Krishna Tokenizer API Server...")
+    print("🚀 Starting SanTOK API Server...")
     print("📡 Server will be available at: http://localhost:8000")
     print("📚 API Documentation at: http://localhost:8000/docs")
     uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)

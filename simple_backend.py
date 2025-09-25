@@ -1,5 +1,5 @@
 """
-Simple HTTP Backend Server for Krishna Tokenizer
+Simple HTTP Backend Server for SanTOK
 Uses only standard library - no external dependencies
 """
 
@@ -19,7 +19,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 try:
     import krishna_tokenizer as KT
     from krishna_tokenizer import _content_id  # convenience
-    print("✅ Successfully imported krishna_tokenizer.py")
+    print("✅ Successfully imported engine module")
 except ImportError as e:
     print(f"❌ Error importing krishna_tokenizer.py: {e}")
     sys.exit(1)
@@ -77,7 +77,7 @@ class CORSHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
 
     def handle_root(self):
         response = {
-            "message": "Krishna Tokenizer API is running!",
+            "message": "SanTOK API is running!",
             "version": "1.0.0",
             "available_tokenizers": list(TOKENIZERS.keys())
         }
@@ -338,7 +338,7 @@ class CORSHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
 def main():
     PORT = 8000
     
-    print("🎯 Krishna Tokenizer Simple Backend Server")
+    print("🎯 SanTOK Simple Backend Server")
     print("=" * 50)
     print(f"📡 Starting server on port {PORT}")
     print(f"🌐 Server will be available at: http://localhost:{PORT}")

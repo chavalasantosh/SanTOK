@@ -1,194 +1,332 @@
-# Krishna Tokenizer
+# SanTOK
 
-**Enterprise-grade text tokenization platform with multiple algorithms, compression analysis, and real-time visualization.**
+Advanced, reversible tokenization with multi‑algorithm support, compression analysis, and a modern web UI.
 
-## 🚀 Quick Start
+## TL;DR
 
-### Python CLI (Original)
-```bash
-python krishna_tokenizer.py
-```
+- CLI: `python krishna_tokenizer.py`
+- Simple HTTP API (std‑lib only): `py simple_backend.py` → `http://localhost:8000`
+- FastAPI API (full features): `py backend_server.py` (requires FastAPI/Uvicorn)
+- Frontend: `cd frontend && npm i && npm run dev` → `http://localhost:3000`
 
-### Web Frontend (New)
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-## 📁 Project Structure
-
-```
-Krisna Tokenization/
-├── frontend/                 # 🌐 Web Application (Next.js)
-│   ├── app/                 # Next.js pages
-│   ├── components/          # React components
-│   ├── lib/                 # API integration
-│   ├── store/               # State management
-│   └── ...                  # Frontend files
-├── docs/                    # 📚 Documentation
-├── examples/                # 🧪 Demo scripts
-├── tests/                   # 🧪 Test suite
-├── krishna_tokenizer.py     # 🐍 Main Python CLI
-├── main.py                  # 🐍 Entry point
-├── tokenizer.py             # 🐍 Core tokenizer
-├── token_math.py            # 🐍 Math utilities
-└── uid.py                   # 🐍 UID generation
-```
-
-## 🎯 Features
-
-### Python CLI
-- ✅ 9 Tokenization algorithms
-- ✅ Compression analysis
-- ✅ Performance metrics
-- ✅ File processing
-- ✅ Command-line interface
-
-### Web Frontend
-- ✅ Interactive dashboard
-- ✅ Real-time tokenization
-- ✅ File upload support
-- ✅ Visual analytics
-- ✅ Dark mode
-- ✅ Responsive design
-
-## 🛠️ Technology Stack
-
-### Backend (Python)
-- **Core**: Python 3.8+
-- **Libraries**: Standard library
-- **Features**: Multiple tokenization algorithms
-
-### Frontend (Web)
-- **Framework**: Next.js 14 + TypeScript
-- **Styling**: Tailwind CSS + shadcn/ui
-- **Charts**: Recharts
-- **State**: Zustand
-- **Animations**: Framer Motion
-
-## 📖 Documentation
-
-- [Complete User Manual](docs/02-user-guides/01-Complete_User_Manual.md)
-- [Quick Start Guide](docs/02-user-guides/02-Quick_Start_Guide.md)
-- [Technical Specifications](docs/03-technical-specs/)
-- [Mathematics Reference](docs/04-mathematics/)
-
-## 🚀 Getting Started
-
-### Option 1: Python CLI
-```bash
-# Run the main tokenizer
-python krishna_tokenizer.py
-
-# Or use the entry point
-python main.py
-```
-
-### Option 2: Web Frontend
-```bash
-# Navigate to frontend
-cd frontend
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Open http://localhost:3000
-```
-
-## 🧪 Examples
-
-```bash
-# Run demo scripts
-python examples/demo_enhanced_tokenization.py
-python examples/demo_stable_system.py
-python examples/demo_universal_files.py
-```
-
-## 🧪 Testing
-
-```bash
-# Run all tests
-python tests/run_tests.py
-
-# Run specific test suites
-python tests/test_scripts/test_comprehensive.py
-python tests/test_scripts/test_compression_efficiency.py
-```
-
-## 📊 Supported Tokenizers
-
-1. **Character** - Individual character tokenization
-2. **Word** - Word boundary tokenization
-3. **Space** - Whitespace-based tokenization
-4. **Subword** - Advanced subword tokenization
-5. **Grammar** - Linguistic grammar-based tokenization
-6. **Syllable** - Syllable-based tokenization
-7. **Byte** - Byte-level tokenization
-8. **BPE** - Byte Pair Encoding
-9. **Frequency** - Frequency-based tokenization
-
-## 🎨 Web Interface Features
-
-- **Dashboard** - Main tokenization interface
-- **Compression Explorer** - Algorithm comparison
-- **Performance Lab** - Benchmarking tools
-- **About** - Project information
-
-## 📱 Responsive Design
-
-- **Desktop** - Full feature set
-- **Tablet** - Touch-optimized
-- **Mobile** - Stacked layout
-
-## 🔧 Configuration
-
-### Environment Variables
-```env
-# Frontend (.env.local)
-NEXT_PUBLIC_API_URL=http://localhost:8000
-```
-
-### Tokenizer Options
-- Lowercase text
-- Drop special characters
-- Collapse repeats
-- Enable embeddings
-- Custom seed
-- Embedding bit control
-
-## 🚀 Deployment
-
-### Python CLI
-- Run directly on any Python 3.8+ system
-- No additional dependencies required
-
-### Web Frontend
-- Deploy to Vercel, Netlify, or any hosting platform
-- Build command: `npm run build`
-- Start command: `npm start`
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-## 📄 License
-
-MIT License - see LICENSE file for details
-
-## 🆘 Support
-
-- **Documentation**: Check the `docs/` folder
-- **Issues**: Create a GitHub issue
-- **Email**: support@krishnatokenizer.com
+The API returns engine digits so the UI IDs view matches the CLI output.
 
 ---
 
-**Krishna Tokenizer** - Advanced text processing made simple and powerful.
+## Requirements
+
+- Python 3.10+ (tested on 3.13)
+- Node.js 18+ (Next.js 14)
+
+Optional (FastAPI backend):
+- `pip install fastapi uvicorn pydantic`
+
+---
+
+## Project Structure
+
+```
+Krisna Tokenization/
+├── frontend/                     # Next.js 14 + TypeScript web UI
+├── backend_server.py             # FastAPI backend (real engine wiring)
+├── simple_backend.py             # Std‑lib HTTP backend (now returns engine digits)
+├── krishna_tokenizer.py          # CLI engine & math
+├── tokenizer.py, token_math.py   # Tokenization + math primitives
+├── tests/, docs/, examples/      # Tests, docs, demos
+└── ...
+```
+
+---
+
+## Quick Start
+
+### A) CLI (no deps)
+```bash
+python krishna_tokenizer.py
+```
+
+### B) Simple HTTP API (std‑lib only)
+```bash
+py simple_backend.py
+# → http://localhost:8000
+```
+
+### C) FastAPI API (recommended for dev)
+```bash
+pip install fastapi uvicorn pydantic
+py backend_server.py
+# → http://localhost:8000 (docs at /docs)
+```
+
+### D) Frontend (Next.js)
+```bash
+cd frontend
+npm install
+# (optional) echo NEXT_PUBLIC_API_URL=http://localhost:8000 > .env.local
+npm run dev
+# Open http://localhost:3000
+```
+
+---
+
+## API Overview
+
+Base URL: `http://localhost:8000`
+
+All endpoints accept JSON like:
+```json
+{
+  "text": "Hello World",
+  "tokenizer_type": "word",
+  "lower": false,
+  "drop_specials": false,
+  "collapse_repeats": 1,
+  "embedding": false,
+  "seed": 12345,
+  "embedding_bit": 0
+}
+```
+
+### POST /tokenize
+Returns token objects and engine vectors.
+
+Response (truncated):
+```json
+{
+  "tokens": [{"text":"Hello","id":7,"position":0,"length":5,"type":"word"}, ...],
+  "frontendDigits": [7,3,9,...],
+  "backendScaled": [12345, 67890, ...],
+  "contentIds": [1542, 9981, ...],
+  "tokenCount": 68,
+  "characterCount": 342,
+  "tokenizerType": "word"
+}
+```
+
+> The web UI’s “IDs” view reads `frontendDigits` so it matches the CLI’s per‑token 1..9 sequence. If you see `0,1,2...`, your backend isn’t returning `frontendDigits` (see Troubleshooting).
+
+### POST /compress
+Runs real compression analysis (RLE/Pattern/Frequency/Adaptive) using the engine and returns ratios, reversibility flags, and tokens saved.
+
+### POST /validate
+Performs tokenizer‑aware reconstruction via `reconstruct_from_tokens` and reports `isValid`/differences.
+
+---
+
+## Frontend Notes
+
+- Env: `NEXT_PUBLIC_API_URL` (default `http://localhost:8000`)
+- Token Preview → IDs view prefers `frontendDigits`; falls back to token.id only if absent.
+- Large inputs: UI applies lightweight guards and progress feedback.
+
+---
+
+## Troubleshooting
+
+### Token IDs show `0..N`
+- Ensure you are running the updated backend (`simple_backend.py` or `backend_server.py`).
+- Call `/tokenize` and verify the response includes `frontendDigits`.
+- Hard refresh the browser (Ctrl+F5).
+
+### PowerShell JSON quoting error
+If you curl from PowerShell, escape quotes or use Invoke‑WebRequest properly:
+```powershell
+(Invoke-WebRequest -UseBasicParsing -Uri http://localhost:8000/tokenize -Method POST -ContentType application/json -Body '{"text":"Hello","tokenizer_type":"word"}').Content
+```
+
+### 403 pushing to GitHub (wrong cached credentials)
+Open Windows Credential Manager and remove `github.com` entries, then push. Or force push after `git fetch`:
+```cmd
+git fetch origin
+git push -u origin main --force-with-lease
+```
+
+### Normalize line endings (Windows)
+```bash
+echo * text=auto > .gitattributes
+git add .gitattributes && git commit -m "Normalize line endings" && git push
+```
+
+---
+
+## Supported Tokenizers (engine)
+
+- space, word, char, grammar
+- subword (fixed), subword_bpe, subword_syllable, subword_frequency
+- byte
+
+Each stream exposes:
+- frontend digit (1..9, seed/neighbor/embedding‑aware)
+- backend number (scaled & huge), content id, deterministic index
+
+---
+
+## Development Tips
+
+- Prefer the FastAPI backend during development for interactive docs and strict validation.
+- The simple HTTP server is std‑lib only and now mirrors the engine digits.
+- UI and API are decoupled via `NEXT_PUBLIC_API_URL`.
+
+---
+
+## License
+
+MIT — see `LICENSE`.
+
+---
+
+Made with care for stability, reversibility, and real‑time analysis.
+
+---
+
+## Extended Documentation
+
+### 1) Architecture (Sequence)
+
+```text
+User → Frontend (/tokenize) → Backend (simple/FastAPI) → krishna_tokenizer
+     ←      JSON (tokens, frontendDigits, backendScaled, fingerprint) ←
+```
+
+- The backend always delegates to `krishna_tokenizer.TextTokenizer(seed, embedding)` to compute:
+  - `frontendDigits` (1..9)
+  - `backendScaled` (per‑token scaled integers)
+  - `contentIds` (deterministic)
+
+### 2) Endpoint Schemas
+
+Common Request (JSON):
+```json
+{
+  "text": "string",
+  "tokenizer_type": "space|word|char|grammar|subword|bpe|syllable|frequency|byte",
+  "lower": false,
+  "drop_specials": false,
+  "collapse_repeats": 1,
+  "embedding": false,
+  "seed": 12345,
+  "embedding_bit": 0
+}
+```
+
+`/tokenize` Response (schema excerpt):
+```json
+{
+  "tokens": [
+    {
+      "text": "string",
+      "id": 1,
+      "position": 0,
+      "length": 5,
+      "type": "word",
+      "color": "hsl(...)"
+    }
+  ],
+  "tokenCount": 0,
+  "characterCount": 0,
+  "tokenizerType": "word",
+  "processingTime": 0,
+  "memoryUsage": 0,
+  "compressionRatio": 0,
+  "reversibility": true,
+  "fingerprint": {
+    "signatureDigit": 7,
+    "compatDigit": 3,
+    "textValue": 1234,
+    "textValueWithEmbedding": 8
+  },
+  "frontendDigits": [1,2,3],
+  "backendScaled": [12345],
+  "contentIds": [1542]
+}
+```
+
+### 3) Engine Math (Intuition)
+
+For each token text `t` at position `i`:
+- compute weighted char sum (run‑aware if collapse=1)
+- add position and alphabetic sums
+- XOR with deterministic UID (seeded), add neighbor UIDs, embedding bit
+- fold to 1..9 with a 9‑centric digital root → frontend digit
+
+This makes digits stable, deterministic, and context‑aware.
+
+### 4) Docker (examples)
+
+FastAPI backend `Dockerfile` (example):
+```dockerfile
+FROM python:3.11-slim
+WORKDIR /app
+COPY . .
+RUN pip install --no-cache-dir fastapi uvicorn pydantic
+EXPOSE 8000
+CMD ["python", "backend_server.py"]
+```
+
+Frontend `Dockerfile` (example):
+```dockerfile
+FROM node:18-alpine AS build
+WORKDIR /app
+COPY frontend ./
+RUN npm ci && npm run build
+
+FROM node:18-alpine
+WORKDIR /app
+COPY --from=build /app .
+ENV NEXT_PUBLIC_API_URL=http://localhost:8000
+EXPOSE 3000
+CMD ["npm", "start"]
+```
+
+Compose (example):
+```yaml
+version: "3.8"
+services:
+  api:
+    build: .
+    ports: ["8000:8000"]
+  web:
+    build:
+      context: ./frontend
+    environment:
+      - NEXT_PUBLIC_API_URL=http://api:8000
+    ports: ["3000:3000"]
+    depends_on: [api]
+```
+
+### 5) CI (GitHub Actions)
+
+`.github/workflows/ci.yml` (starter):
+```yaml
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 18 }
+      - run: cd frontend && npm ci && npm run build
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: python -m py_compile krishna_tokenizer.py tokenizer.py token_math.py
+```
+
+### 6) Developer Workflow
+
+```bash
+git checkout -b feat/<name>
+# commit with conventional message
+git commit -m "feat(api): add engine digits to response"
+git push -u origin HEAD
+```
+
+### 7) Security & Limits
+- The simple server is stdlib only; validate inputs before exposing publicly.
+- Consider request size limits on `/tokenize` and `/analyze`.
+
+### 8) Support
+- Issues: GitHub Issues tab
+- Docs: `docs/` directory
+

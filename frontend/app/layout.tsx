@@ -8,10 +8,10 @@ import { ToastContainer } from '@/components/simple-toast'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Krishna Tokenizer - Advanced Text Tokenization Platform',
+  title: 'SanTOK - Advanced Text Tokenization Platform',
   description: 'Enterprise-grade text tokenization with multiple algorithms, compression analysis, and real-time visualization.',
   keywords: ['tokenization', 'NLP', 'text processing', 'compression', 'analysis'],
-  authors: [{ name: 'Krishna Tokenizer Team' }],
+  authors: [{ name: 'SanTOK Team' }],
 }
 
 export const viewport = {

@@ -110,10 +110,10 @@ export function Header({ onMenuClick, onShortcutsClick }: HeaderProps) {
           
           <div className="flex items-center space-x-2">
             <div className="h-7 w-7 sm:h-8 sm:w-8 rounded-lg bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xs sm:text-sm">K</span>
+              <span className="text-primary-foreground font-bold text-xs sm:text-sm">S</span>
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-base sm:text-xl font-bold">Krishna Tokenizer</h1>
+              <h1 className="text-base sm:text-xl font-bold">SanTOK</h1>
               <p className="text-xs text-muted-foreground">Advanced Text Processing</p>
             </div>
           </div>

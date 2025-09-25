@@ -85,10 +85,10 @@ export function About() {
       >
         <div className="flex items-center justify-center space-x-3 mb-6">
           <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-xl">K</span>
+            <span className="text-primary-foreground font-bold text-xl">S</span>
           </div>
           <div>
-            <h1 className="text-4xl font-bold">Krishna Tokenizer</h1>
+            <h1 className="text-4xl font-bold">SanTOK</h1>
             <p className="text-muted-foreground">Advanced Text Processing Platform</p>
           </div>
         </div>
@@ -296,7 +296,7 @@ export function About() {
           </a>
         </div>
         <p className="text-xs text-muted-foreground">
-          © 2024 Krishna Tokenizer. All rights reserved.
+          © 2024 SanTOK. All rights reserved.
         </p>
       </motion.div>
     </div>
