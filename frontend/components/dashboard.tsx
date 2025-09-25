@@ -25,7 +25,7 @@ import {
 } from 'lucide-react'
 import { useAppStore } from '@/store/useAppStore'
 import { getMockTokenizationResult, getMockCompressionAnalysis } from '@/lib/api'
-import { formatBytes, formatTime, formatPercentage, generateTokenColors, exportToJSON, exportToCSV, copyToClipboard } from '@/utils'
+import { formatBytes, formatTime, formatPercentage, generateTokenColors, exportToJSON, exportToCSV, exportToTEXT, exportToXML, copyToClipboard } from '@/utils'
 import { TokenPreview } from '@/components/token-preview'
 import { MetricsPanel } from '@/components/metrics-panel'
 import { CompressionStats } from '@/components/compression-stats'
@@ -154,18 +154,28 @@ export function Dashboard() {
     setText(exampleText)
   }
 
-  const handleExport = (format: 'json' | 'csv') => {
+  const handleExport = (format: 'json' | 'csv' | 'txt' | 'xml') => {
     if (!currentResult) {
       toast.error('No results to export')
       return
     }
 
+    const tokenizerType = currentResult.tokenizerType || 'word'
+    const timestamp = new Date().toISOString().split('T')[0]
+    const baseFilename = `tokenization-${tokenizerType}-${timestamp}`
+
     if (format === 'json') {
-      exportToJSON(currentResult, 'tokenization-result.json')
+      exportToJSON(currentResult, `${baseFilename}.json`, tokenizerType)
       toast.success('Results exported as JSON')
-    } else {
-      exportToCSV(currentResult.tokens, 'tokens.csv')
+    } else if (format === 'csv') {
+      exportToCSV(currentResult.tokens, `${baseFilename}.csv`, tokenizerType)
       toast.success('Results exported as CSV')
+    } else if (format === 'txt') {
+      exportToTEXT(currentResult.tokens, `${baseFilename}.txt`, tokenizerType)
+      toast.success('Results exported as TEXT')
+    } else if (format === 'xml') {
+      exportToXML(currentResult.tokens, `${baseFilename}.xml`, tokenizerType)
+      toast.success('Results exported as XML')
     }
   }
 
@@ -463,6 +473,22 @@ export function Dashboard() {
                     >
                       <Download className="h-4 w-4 mr-1" />
                       CSV
+                    </Button>
+                    <Button
+                      onClick={() => handleExport('txt')}
+                      variant="outline"
+                      size="sm"
+                    >
+                      <Download className="h-4 w-4 mr-1" />
+                      TEXT
+                    </Button>
+                    <Button
+                      onClick={() => handleExport('xml')}
+                      variant="outline"
+                      size="sm"
+                    >
+                      <Download className="h-4 w-4 mr-1" />
+                      XML
                     </Button>
                   </div>
                 )}

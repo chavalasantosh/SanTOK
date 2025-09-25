@@ -64,19 +64,19 @@ export const searchTokens = (tokens: any[], query: string): any[] => {
   })
 }
 
-export const exportToJSON = (data: any, filename: string = 'tokenization-result.json'): void => {
+export const exportToJSON = (data: any, filename: string = 'tokenization-result.json', tokenizerType: string = 'word'): void => {
   const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
   const url = URL.createObjectURL(blob)
   const link = document.createElement('a')
   link.href = url
-  link.download = filename
+  link.download = `Outputs/${tokenizerType}/JSON/${filename}`
   document.body.appendChild(link)
   link.click()
   document.body.removeChild(link)
   URL.revokeObjectURL(url)
 }
 
-export const exportToCSV = (tokens: Token[], filename: string = 'tokens.csv'): void => {
+export const exportToCSV = (tokens: Token[], filename: string = 'tokens.csv', tokenizerType: string = 'word'): void => {
   const headers = ['ID', 'Text', 'Position', 'Length', 'Type']
   const rows = tokens.map(token => [
     token.id,
@@ -94,7 +94,38 @@ export const exportToCSV = (tokens: Token[], filename: string = 'tokens.csv'): v
   const url = URL.createObjectURL(blob)
   const link = document.createElement('a')
   link.href = url
-  link.download = filename
+  link.download = `Outputs/${tokenizerType}/CSV/${filename}`
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+  URL.revokeObjectURL(url)
+}
+
+export const exportToTEXT = (tokens: Token[], filename: string = 'tokens.txt', tokenizerType: string = 'word'): void => {
+  const textContent = tokens.map(token => token.text).join('')
+  
+  const blob = new Blob([textContent], { type: 'text/plain' })
+  const url = URL.createObjectURL(blob)
+  const link = document.createElement('a')
+  link.href = url
+  link.download = `Outputs/${tokenizerType}/TEXT/${filename}`
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+  URL.revokeObjectURL(url)
+}
+
+export const exportToXML = (tokens: Token[], filename: string = 'tokens.xml', tokenizerType: string = 'word'): void => {
+  const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
+<tokens>
+${tokens.map(token => `  <token id="${token.id}" position="${token.position}" length="${token.length}" type="${token.type || 'unknown'}">${token.text}</token>`).join('\n')}
+</tokens>`
+  
+  const blob = new Blob([xmlContent], { type: 'application/xml' })
+  const url = URL.createObjectURL(blob)
+  const link = document.createElement('a')
+  link.href = url
+  link.download = `Outputs/${tokenizerType}/XML/${filename}`
   document.body.appendChild(link)
   link.click()
   document.body.removeChild(link)

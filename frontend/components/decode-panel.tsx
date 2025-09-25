@@ -133,11 +133,15 @@ export function DecodePanel({ tokens = [], tokenizerType = 'word', onDecode }: D
       return
     }
 
+    const currentTokenizerType = tokenizerType || 'word'
+    const timestamp = new Date().toISOString().split('T')[0]
+    const filename = `decoded-text-${currentTokenizerType}-${timestamp}.txt`
+
     const blob = new Blob([decodedText], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = 'decoded-text.txt'
+    a.download = `Outputs/${currentTokenizerType}/TEXT/${filename}`
     document.body.appendChild(a)
     a.click()
     document.body.removeChild(a)
