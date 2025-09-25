@@ -149,7 +149,7 @@ export function Dashboard() {
   }
 
   const handleExample = () => {
-    const exampleText = `Hello, I'm a robot shit. I hold a B.Tech in Artificial Intelligence and Data Science, and my career has been a blend of Data Engineering, BI Development, and AI Engineering. I started out as a Data Engineer and Data Analyst, where I designed ETL pipelines and provided BI teams with structured, high-quality data. I also worked as a BI Developer, creating dashboards in Tableau and Power BI that helped business stakeholders make data-driven decisions.`
+    const exampleText = `Hello, I'm a data scientist. I hold a B.Tech in Artificial Intelligence and Data Science, and my career has been a blend of Data Engineering, BI Development, and AI Engineering. I started out as a Data Engineer and Data Analyst, where I designed ETL pipelines and provided BI teams with structured, high-quality data. I also worked as a BI Developer, creating dashboards in Tableau and Power BI that helped business stakeholders make data-driven decisions.`
     setText(exampleText)
   }
 

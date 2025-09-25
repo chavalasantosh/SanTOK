@@ -88,7 +88,7 @@ class TokenizationResult(BaseModel):
     compressionRatio: float
     reversibility: bool
     fingerprint: Dict[str, Any]
-    # Extra data to mirror SanTOK_tokenizer engine
+    # Extra data to mirror SanTOK core tokenizer engine
     frontendDigits: Optional[List[int]] = None
     backendScaled: Optional[List[int]] = None
     contentIds: Optional[List[int]] = None
@@ -211,7 +211,7 @@ async def tokenize_text(request: TokenizationRequest):
         
         # Tokenize
         tokens = tokenizer_func(processed_text)
-        # Build engine digits using SanTOK_tokenizer streams
+        # Build engine digits using SanTOK core tokenizer streams
         seed = request.seed if request.seed is not None else 12345
         embedding_flag = bool(request.embedding_bit) or bool(request.embedding)
         try:

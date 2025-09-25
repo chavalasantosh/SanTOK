@@ -11,7 +11,7 @@ import os
 def check_backend_files():
     """Check if required backend files exist"""
     required_files = [
-        "SanTOK_tokenizer.py",
+        "core_tokenizer.py",
         "lightweight_server.py"
     ]
     

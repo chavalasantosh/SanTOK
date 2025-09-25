@@ -38,8 +38,8 @@ if __name__ == "__main__":
     print("=" * 40)
     
     # Check if we're in the right directory
-    if not os.path.exists("SanTOK_tokenizer.py"):
-        print("❌ Error: SanTOK_tokenizer.py not found!")
+    if not os.path.exists("core_tokenizer.py"):
+        print("❌ Error: core_tokenizer.py not found!")
         print("Please run this script from the project root directory.")
         sys.exit(1)
     
