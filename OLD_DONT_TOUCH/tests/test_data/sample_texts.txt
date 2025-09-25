@@ -1,0 +1,12 @@
+Hello World!
+This is a test file with various content.
+Special characters: @#$%^&*()
+Numbers: 1234567890
+Unicode: 🌟🚀💻
+Mixed content: Hello123@#$%World!
+Empty lines and    multiple    spaces.
+Tabs:	tab	separated	content
+Newlines:
+Line 1
+Line 2
+Line 3
