@@ -18,6 +18,20 @@ export default function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [showShortcuts, setShowShortcuts] = useState(false)
 
+  // Set sidebar open by default on desktop
+  useEffect(() => {
+    const checkScreenSize = () => {
+      if (window.innerWidth >= 1024) { // lg breakpoint
+        setSidebarOpen(true)
+      }
+    }
+    
+    checkScreenSize()
+    window.addEventListener('resize', checkScreenSize)
+    
+    return () => window.removeEventListener('resize', checkScreenSize)
+  }, [])
+
   // Enable keyboard shortcuts
   useKeyboardShortcuts()
 
@@ -67,7 +81,7 @@ export default function Home() {
           onClose={() => setSidebarOpen(false)}
         />
         
-        <main className="flex-1 lg:ml-64">
+        <main className="flex-1 lg:ml-64 min-h-screen">
           <motion.div
             key={activePage}
             initial={{ opacity: 0, y: 20 }}

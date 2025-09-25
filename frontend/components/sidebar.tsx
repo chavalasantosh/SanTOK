@@ -84,7 +84,8 @@ export function Sidebar({ activePage, onPageChange, isOpen, onClose }: SidebarPr
         }}
         transition={{ type: 'spring', damping: 30, stiffness: 300 }}
         className={cn(
-          "fixed left-0 top-16 z-50 h-[calc(100vh-4rem)] w-64 bg-background border-r lg:translate-x-0 lg:static lg:inset-0",
+          "fixed left-0 top-16 z-50 h-[calc(100vh-4rem)] w-64 bg-background border-r",
+          "lg:translate-x-0 lg:static lg:inset-0",
           "flex flex-col"
         )}
       >

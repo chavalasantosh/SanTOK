@@ -17,6 +17,7 @@ import {
 } from 'lucide-react'
 import { useAppStore } from '@/store/useAppStore'
 import { useTheme } from 'next-themes'
+import { Logo } from '@/components/logo'
 
 interface HeaderProps {
   onMenuClick: () => void
@@ -72,11 +73,11 @@ export function Header({ onMenuClick, onShortcutsClick }: HeaderProps) {
               <Menu className="h-5 w-5" />
             </Button>
             <div className="flex items-center space-x-2">
-              <div className="h-8 w-8 bg-primary/10 rounded-lg animate-pulse" />
-              <div className="space-y-1">
-                <div className="h-4 w-24 bg-muted animate-pulse rounded" />
-                <div className="h-3 w-16 bg-muted animate-pulse rounded" />
-              </div>
+            <Logo size="sm" showText={false} />
+            <div className="space-y-1">
+              <div className="h-4 w-24 bg-muted animate-pulse rounded" />
+              <div className="h-3 w-16 bg-muted animate-pulse rounded" />
+            </div>
             </div>
           </div>
           <div className="flex items-center space-x-2">
@@ -108,12 +109,11 @@ export function Header({ onMenuClick, onShortcutsClick }: HeaderProps) {
             <Menu className="h-4 w-4 sm:h-5 sm:w-5" />
           </Button>
           
-          <div className="flex items-center space-x-2">
-            <div className="h-7 w-7 sm:h-8 sm:w-8 rounded-lg bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xs sm:text-sm">S</span>
-            </div>
-            <div className="hidden sm:block">
-              <h1 className="text-base sm:text-xl font-bold">SanTOK</h1>
+          <Logo size="md" showText={true} className="hidden sm:flex" />
+          <div className="sm:hidden flex items-center space-x-2">
+            <Logo size="sm" showText={false} />
+            <div className="flex flex-col">
+              <h1 className="text-base font-bold">SanTOK</h1>
               <p className="text-xs text-muted-foreground">Advanced Text Processing</p>
             </div>
           </div>
