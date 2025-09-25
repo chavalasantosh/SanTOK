@@ -399,6 +399,29 @@ async def validate_tokenization(request: TokenizationRequest):
         print(f"Validation error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.post("/decode")
+async def decode_tokens(request: Dict[str, Any]):
+    """Decode tokenized text back to original form"""
+    try:
+        tokens = request.get("tokens", [])
+        tokenizer_type = request.get("tokenizer_type", "word")
+        
+        if not tokens:
+            raise HTTPException(status_code=400, detail="No tokens provided")
+        
+        # Use the core tokenizer's reconstruction function
+        decoded_text = KT.reconstruct_from_tokens(tokens, tokenizer_type)
+        
+        return {
+            "decoded_text": decoded_text,
+            "tokenizer_type": tokenizer_type,
+            "token_count": len(tokens),
+            "decoded_length": len(decoded_text)
+        }
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Decoding failed: {str(e)}")
+
 if __name__ == "__main__":
     import uvicorn
     print("🚀 Starting SanTOK API Server...")

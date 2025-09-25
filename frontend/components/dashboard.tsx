@@ -33,6 +33,7 @@ import { PerformanceMetrics } from '@/components/performance-metrics'
 import { FingerprintPanel } from '@/components/fingerprint-panel'
 import { FileUpload } from '@/components/file-upload'
 import { HelpTooltip } from '@/components/help-tooltip'
+import { DecodePanel } from '@/components/decode-panel'
 import { toast } from '@/components/notification-toast'
 import { tokenizeText, compressText } from '@/lib/api'
 
@@ -543,6 +544,16 @@ export function Dashboard() {
                 <PerformanceMetrics result={currentResult} />
                 <FingerprintPanel result={currentResult} />
               </div>
+              
+              {/* Decode Panel */}
+              <DecodePanel 
+                tokens={currentResult?.tokens || []}
+                tokenizerType={tokenizerOptions.tokenizerType}
+                onDecode={(decodedText) => {
+                  setText(decodedText)
+                  toast.success('Decoded text loaded into input')
+                }}
+              />
             </>
           )}
 
