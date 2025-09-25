@@ -6,7 +6,7 @@ This script demonstrates the production-ready, stable, and reversible
 tokenization system with unique IDs by design.
 """
 
-from krishna_tokenizer import (
+from SanTOK_tokenizer import (
     tokenize_space, tokenize_bytes, tokenize_subword,
     reconstruct_from_tokens, validate_reversibility, validate_unique_ids,
     comprehensive_validation, get_unique_ids
@@ -187,7 +187,7 @@ def main():
     print("DEMONSTRATION SUMMARY")
     print("=" * 60)
     print()
-    print("The Krishna Tokenizer now provides:")
+    print("The SanTOK Tokenizer now provides:")
     print("✓ Perfect reversibility (100% reconstruction guaranteed)")
     print("✓ Unique IDs by design (no collisions, deterministic)")
     print("✓ Stable and deterministic behavior")

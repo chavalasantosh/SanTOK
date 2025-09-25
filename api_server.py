@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-FastAPI Backend Server for Krishna Tokenizer
+FastAPI Backend Server for SanTOK Tokenizer
 Connects the frontend to the actual Python tokenization engine
 """
 
@@ -18,16 +18,16 @@ import json
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 try:
-    from krishna_tokenizer import KrishnaTokenizer
-    from token_math import TokenMath
-    from uid import generate_uid
+    from core_tokenizer import SanTOKTokenizer
+    from compression_algorithms import TokenMath
+    from unique_identifier import generate_uid
 except ImportError as e:
     print(f"Error importing modules: {e}")
-    print("Make sure krishna_tokenizer.py, token_math.py, and uid.py are in the same directory")
+    print("Make sure core_tokenizer.py, compression_algorithms.py, and unique_identifier.py are in the same directory")
     sys.exit(1)
 
 app = FastAPI(
-    title="Krishna Tokenizer API",
+    title="SanTOK Tokenizer API",
     description="Advanced Text Tokenization Platform",
     version="1.0.0"
 )
@@ -88,11 +88,11 @@ class CompressionAnalysis(BaseModel):
     reversibility: bool
 
 # Initialize tokenizer
-tokenizer = KrishnaTokenizer()
+tokenizer = SanTOKTokenizer()
 
 @app.get("/")
 async def root():
-    return {"message": "Krishna Tokenizer API is running!", "version": "1.0.0"}
+    return {"message": "SanTOK Tokenizer API is running!", "version": "1.0.0"}
 
 @app.get("/health")
 async def health_check():
@@ -100,7 +100,7 @@ async def health_check():
 
 @app.post("/tokenize", response_model=TokenizationResult)
 async def tokenize_text(request: TokenizationRequest):
-    """Tokenize text using the Krishna Tokenizer"""
+    """Tokenize text using the SanTOK Tokenizer"""
     try:
         start_time = time.time()
         start_memory = psutil.Process().memory_info().rss / 1024 / 1024  # MB
@@ -270,7 +270,7 @@ async def validate_tokenization(request: dict):
 
 if __name__ == "__main__":
     import uvicorn
-    print("🚀 Starting Krishna Tokenizer API Server...")
+    print("🚀 Starting SanTOK Tokenizer API Server...")
     print("📡 Frontend should connect to: http://localhost:8000")
     print("🌐 API Documentation: http://localhost:8000/docs")
     uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)

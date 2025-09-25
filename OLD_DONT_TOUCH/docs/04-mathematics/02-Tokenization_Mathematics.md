@@ -1,5 +1,5 @@
 # Tokenization Mathematics
-## Complete Mathematical Guide for Krishna Tokenizer
+## Complete Mathematical Guide for SanTOK Tokenizer
 
 **Document Version:** 1.0  
 **Date:** September 23, 2025  
@@ -9,7 +9,7 @@
 
 ## 🎯 **PURPOSE**
 
-This document explains all the **mathematical concepts, formulas, and calculations** used in the Krishna Tokenizer system. Every mathematical operation is explained with examples and step-by-step calculations.
+This document explains all the **mathematical concepts, formulas, and calculations** used in the SanTOK Tokenizer system. Every mathematical operation is explained with examples and step-by-step calculations.
 
 ---
 
@@ -674,7 +674,7 @@ Validation Score = (Passed ÷ Total) × 100
 
 ---
 
-## 16. MATHEMATICAL EXAMPLES FROM KRISHNA TOKENIZER
+## 16. MATHEMATICAL EXAMPLES FROM SanTOK TOKENIZER
 
 ### 16.1 Real System Example
 **Input:** "Hello World! This is a test."
@@ -736,7 +736,7 @@ Compression Analysis: rle: 1.000 ratio (0.0% saved, 0 tokens)
 
 ### 17.3 Next Steps
 1. **Practice:** Work through all the practice problems
-2. **Apply:** Use these formulas with real Krishna Tokenizer data
+2. **Apply:** Use these formulas with real SanTOK Tokenizer data
 3. **Experiment:** Try different inputs and analyze the results
 4. **Optimize:** Use the math to improve system performance
 
@@ -746,4 +746,4 @@ Compression Analysis: rle: 1.000 ratio (0.0% saved, 0 tokens)
 **Mathematical Coverage:** ✅ **ALL TOKENIZATION MATH COVERED**  
 **Formula Reference:** ✅ **COMPLETE FORMULA COLLECTION**  
 **Practice Problems:** ✅ **COMPREHENSIVE PRACTICE SET**  
-**Real Examples:** ✅ **KRISHNA TOKENIZER EXAMPLES INCLUDED**
+**Real Examples:** ✅ **SanTOK TOKENIZER EXAMPLES INCLUDED**

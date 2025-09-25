@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-COMPREHENSIVE TEST SUITE - Krishna Tokenizer
+COMPREHENSIVE TEST SUITE - SanTOK Tokenizer
 ============================================
 
-This test suite validates all aspects of the Krishna Tokenizer:
+This test suite validates all aspects of the SanTOK Tokenizer:
 - Universal file input/output
 - All tokenization strategies
 - Reversibility and stability
@@ -17,10 +17,10 @@ import sys
 import time
 from pathlib import Path
 
-# Add parent directory to path to import krishna_tokenizer
+# Add parent directory to path to import SanTOK_tokenizer
 sys.path.append(str(Path(__file__).parent.parent.parent))
 
-from krishna_tokenizer import (
+from SanTOK_tokenizer import (
     all_tokenizations, 
     validate_reversibility, 
     comprehensive_validation,
@@ -233,7 +233,7 @@ def test_comprehensive_validation():
 
 def run_all_tests():
     """Run all test suites"""
-    print("🚀 KRISHNA TOKENIZER - COMPREHENSIVE TEST SUITE")
+    print("🚀 SanTOK TOKENIZER - COMPREHENSIVE TEST SUITE")
     print("=" * 60)
     
     all_results = TestResults()
@@ -279,7 +279,7 @@ if __name__ == "__main__":
         print(f"\n⏱️  Total execution time: {duration:.2f} seconds")
         
         if failed == 0:
-            print("\n🎉 ALL TESTS PASSED! Krishna Tokenizer is working perfectly!")
+            print("\n🎉 ALL TESTS PASSED! SanTOK Tokenizer is working perfectly!")
             sys.exit(0)
         else:
             print(f"\n⚠️  {failed} tests failed. Please review the errors above.")

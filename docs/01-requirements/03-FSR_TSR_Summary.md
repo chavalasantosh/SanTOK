@@ -1,5 +1,5 @@
 # FSR & TSR Documentation Summary
-## Krishna Tokenizer System
+## SanTOK Tokenizer System
 
 **Document Version:** 1.0  
 **Date:** September 23, 2025  
@@ -9,7 +9,7 @@
 
 ## 📋 **DOCUMENTATION OVERVIEW**
 
-The Krishna Tokenizer system now includes comprehensive **Full System Requirements (FSR)** and **Technical System Requirements (TSR)** documentation that provides complete coverage of all system aspects.
+The SanTOK Tokenizer system now includes comprehensive **Full System Requirements (FSR)** and **Technical System Requirements (TSR)** documentation that provides complete coverage of all system aspects.
 
 ---
 
@@ -18,7 +18,7 @@ The Krishna Tokenizer system now includes comprehensive **Full System Requiremen
 ### **Document:** [FSR_Full_System_Requirements.md](FSR_Full_System_Requirements.md)
 
 #### **Purpose**
-Complete functional and non-functional requirements specification for the Krishna Tokenizer system.
+Complete functional and non-functional requirements specification for the SanTOK Tokenizer system.
 
 #### **Key Sections**
 1. **Executive Summary** - System purpose and success metrics
@@ -53,7 +53,7 @@ Complete functional and non-functional requirements specification for the Krishn
 ### **Document:** [TSR_Technical_System_Requirements.md](TSR_Technical_System_Requirements.md)
 
 #### **Purpose**
-Detailed technical specifications, architecture, algorithms, and implementation details for the Krishna Tokenizer system.
+Detailed technical specifications, architecture, algorithms, and implementation details for the SanTOK Tokenizer system.
 
 #### **Key Sections**
 1. **Technical Overview** - System architecture and technology stack

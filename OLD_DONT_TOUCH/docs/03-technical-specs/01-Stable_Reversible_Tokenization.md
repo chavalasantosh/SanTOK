@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Krishna Tokenizer has been completely redesigned with **stability**, **reversibility**, and **unique IDs by design** as core principles. This is not flashy - it's **production-ready**, **deterministic**, and **perfectly reversible**.
+The SanTOK Tokenizer has been completely redesigned with **stability**, **reversibility**, and **unique IDs by design** as core principles. This is not flashy - it's **production-ready**, **deterministic**, and **perfectly reversible**.
 
 ## Core Principles
 
@@ -142,7 +142,7 @@ validation_results = comprehensive_validation(text)
 
 ### Basic Usage
 ```python
-from krishna_tokenizer import tokenize_space, reconstruct_from_tokens
+from SanTOK_tokenizer import tokenize_space, reconstruct_from_tokens
 
 # Tokenize
 text = "Hello    world!"
@@ -155,7 +155,7 @@ assert reconstructed == text  # Always True
 
 ### Advanced Usage
 ```python
-from krishna_tokenizer import comprehensive_validation, stability_test
+from SanTOK_tokenizer import comprehensive_validation, stability_test
 
 # Comprehensive validation
 results = comprehensive_validation("Hello 世界!")
@@ -227,7 +227,7 @@ The system includes a comprehensive test suite (`test_stable_tokenization.py`) t
 
 ## Conclusion
 
-This is **not flashy** - it's **solid engineering**. The Krishna Tokenizer now provides:
+This is **not flashy** - it's **solid engineering**. The SanTOK Tokenizer now provides:
 
 - ✅ **Perfect reversibility** (100% reconstruction guaranteed)
 - ✅ **Unique IDs by design** (no collisions, deterministic)

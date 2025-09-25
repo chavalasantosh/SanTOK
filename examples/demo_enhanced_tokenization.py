@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Demonstration of Enhanced Krishna Tokenizer Logic
+Demonstration of Enhanced SanTOK Tokenizer Logic
 
 This script demonstrates the enhanced space, byte, and sub-word tokenization
-logic that has been added to the Krishna Tokenizer system.
+logic that has been added to the SanTOK Tokenizer system.
 """
 
 # Import the enhanced tokenizer functions
-from krishna_tokenizer import (
+from SanTOK_tokenizer import (
     tokenize_space, tokenize_bytes, tokenize_subword,
     advanced_tokenization_analysis, tokenization_comparison,
     all_tokenizations
@@ -118,7 +118,7 @@ def demo_comparison():
 
 def main():
     """Run all demonstrations"""
-    print("Enhanced Krishna Tokenizer Logic Demonstration")
+    print("Enhanced SanTOK Tokenizer Logic Demonstration")
     print("=" * 50)
     print()
     

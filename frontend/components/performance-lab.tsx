@@ -37,7 +37,7 @@ import {
 import { PerformanceMetrics, TokenizerOptions } from '@/types'
 import { useAppStore } from '@/store/useAppStore'
 import { formatBytes, formatTime } from '@/utils'
-import { toast } from '@/components/simple-toast'
+import { toast } from '@/components/notification-toast'
 
 interface BenchmarkResult {
   id: string

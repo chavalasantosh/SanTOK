@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-TEST RUNNER - Krishna Tokenizer
+TEST RUNNER - SanTOK Tokenizer
 ===============================
 
 This script runs all test suites and generates comprehensive reports.
@@ -36,7 +36,7 @@ def run_test_script(script_path):
 
 def main():
     """Main test runner"""
-    print("🚀 KRISHNA TOKENIZER - TEST RUNNER")
+    print("🚀 SanTOK TOKENIZER - TEST RUNNER")
     print("=" * 50)
     
     # Change to tests directory
@@ -85,7 +85,7 @@ def main():
     report_file = results_dir / f"test_report_{timestamp}.txt"
     
     with open(report_file, 'w') as f:
-        f.write("KRISHNA TOKENIZER - TEST REPORT\n")
+        f.write("SanTOK TOKENIZER - TEST REPORT\n")
         f.write("=" * 40 + "\n")
         f.write(f"Generated: {time.strftime('%Y-%m-%d %H:%M:%S')}\n")
         f.write(f"Duration: {duration:.2f} seconds\n\n")

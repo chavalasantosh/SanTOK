@@ -33,7 +33,7 @@ import { PerformanceMetrics } from '@/components/performance-metrics'
 import { FingerprintPanel } from '@/components/fingerprint-panel'
 import { FileUpload } from '@/components/file-upload'
 import { HelpTooltip } from '@/components/help-tooltip'
-import { toast } from '@/components/simple-toast'
+import { toast } from '@/components/notification-toast'
 import { tokenizeText, compressText } from '@/lib/api'
 
 const TOKENIZER_TYPES = [

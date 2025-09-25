@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Start the Simple Krishna Tokenizer Backend Server
+Start the Simple SanTOK Tokenizer Backend Server
 Uses only standard library - no external dependencies
 """
 
@@ -11,8 +11,8 @@ import os
 def check_backend_files():
     """Check if required backend files exist"""
     required_files = [
-        "krishna_tokenizer.py",
-        "simple_backend.py"
+        "SanTOK_tokenizer.py",
+        "lightweight_server.py"
     ]
     
     missing_files = []
@@ -29,20 +29,20 @@ def check_backend_files():
 
 def start_server():
     """Start the simple HTTP server"""
-    print("🚀 Starting Simple Krishna Tokenizer Backend Server...")
+    print("🚀 Starting Simple SanTOK Tokenizer Backend Server...")
     print("📡 Server will be available at: http://localhost:8000")
     print("🔄 Press Ctrl+C to stop the server")
     print("-" * 50)
     
     try:
-        subprocess.run([sys.executable, "simple_backend.py"])
+        subprocess.run([sys.executable, "lightweight_server.py"])
     except KeyboardInterrupt:
         print("\n🛑 Server stopped by user")
     except Exception as e:
         print(f"❌ Error starting server: {e}")
 
 if __name__ == "__main__":
-    print("🎯 Krishna Tokenizer Simple Backend Setup")
+    print("🎯 SanTOK Tokenizer Simple Backend Setup")
     print("=" * 40)
     
     # Check if we're in the right directory

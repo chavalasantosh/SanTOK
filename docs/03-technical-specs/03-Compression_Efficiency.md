@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Krishna Tokenizer now includes **comprehensive compression capabilities** that maintain **full reversibility** while providing **significant space savings**. This addresses the missing efficiency requirement with multiple compression algorithms and detailed analysis.
+The SanTOK Tokenizer now includes **comprehensive compression capabilities** that maintain **full reversibility** while providing **significant space savings**. This addresses the missing efficiency requirement with multiple compression algorithms and detailed analysis.
 
 ## Core Compression Features
 
@@ -140,7 +140,7 @@ compressed = compress_tokens(tokens, "adaptive")
 
 ### Basic Compression
 ```python
-from krishna_tokenizer import tokenize_char, compress_tokens, decompress_tokens
+from SanTOK_tokenizer import tokenize_char, compress_tokens, decompress_tokens
 
 # Tokenize text
 text = "hello hello hello world world world"
@@ -158,7 +158,7 @@ print(f"Decompressed: {len(decompressed)} tokens")
 
 ### Compression Analysis
 ```python
-from krishna_tokenizer import analyze_compression_efficiency
+from SanTOK_tokenizer import analyze_compression_efficiency
 
 # Analyze compression efficiency
 analysis = analyze_compression_efficiency("hello hello hello world world world", "char")
@@ -173,7 +173,7 @@ for method, stats in analysis["compression_methods"].items():
 
 ### Comprehensive Validation with Compression
 ```python
-from krishna_tokenizer import comprehensive_validation
+from SanTOK_tokenizer import comprehensive_validation
 
 # Validate with compression analysis
 results = comprehensive_validation("Hello world! This is a test.", include_compression=True)
@@ -274,7 +274,7 @@ Each compressed token includes:
 
 ## Conclusion
 
-The Krishna Tokenizer now provides **comprehensive compression capabilities** that address the missing efficiency requirement:
+The SanTOK Tokenizer now provides **comprehensive compression capabilities** that address the missing efficiency requirement:
 
 - ✅ **Multiple compression algorithms** (RLE, Pattern, Frequency, Adaptive)
 - ✅ **Significant space savings** (up to 90% compression)

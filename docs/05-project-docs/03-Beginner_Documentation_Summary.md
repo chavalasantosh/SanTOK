@@ -1,5 +1,5 @@
 # Beginner Documentation Summary
-## Krishna Tokenizer - Complete Beginner-Friendly Documentation Suite
+## SanTOK Tokenizer - Complete Beginner-Friendly Documentation Suite
 
 **Document Version:** 1.0  
 **Date:** September 23, 2025  
@@ -25,7 +25,7 @@ Complete mathematical guide with step-by-step explanations for users who need he
 - **Basic Arithmetic:** Addition, subtraction, multiplication, division
 - **Step-by-Step Examples:** Every concept explained with detailed examples
 - **Practice Problems:** 20+ practice problems with solutions
-- **Real-World Applications:** Math concepts applied to Krishna Tokenizer
+- **Real-World Applications:** Math concepts applied to SanTOK Tokenizer
 - **Memory Techniques:** Tips for remembering math facts
 - **Troubleshooting:** Common math problems and solutions
 
@@ -42,16 +42,16 @@ Complete mathematical guide with step-by-step explanations for users who need he
 #### **Target Audience**
 - Users who struggle with basic math
 - People who need step-by-step explanations
-- Users who want to understand Krishna Tokenizer results
+- Users who want to understand SanTOK Tokenizer results
 - Anyone who needs math help while using the system
 
 ---
 
-### **2. Krishna Tokenizer for Beginners**
-📄 **[KRISHNA_TOKENIZER_FOR_BEGINNERS.md](KRISHNA_TOKENIZER_FOR_BEGINNERS.md)**
+### **2. SanTOK Tokenizer for Beginners**
+📄 **[SanTOK_TOKENIZER_FOR_BEGINNERS.md](SanTOK_TOKENIZER_FOR_BEGINNERS.md)**
 
 #### **Purpose**
-Super simple, step-by-step guide for complete beginners to use Krishna Tokenizer.
+Super simple, step-by-step guide for complete beginners to use SanTOK Tokenizer.
 
 #### **Key Features**
 - **Installation Guide:** Step-by-step installation instructions
@@ -62,7 +62,7 @@ Super simple, step-by-step guide for complete beginners to use Krishna Tokenizer
 - **Quick Reference:** Easy-to-find information
 
 #### **Content Coverage**
-- ✅ What is Krishna Tokenizer (simple explanation)
+- ✅ What is SanTOK Tokenizer (simple explanation)
 - ✅ How to install (step-by-step)
 - ✅ How to run (step-by-step)
 - ✅ Understanding the menu (step-by-step)
@@ -77,7 +77,7 @@ Super simple, step-by-step guide for complete beginners to use Krishna Tokenizer
 - ✅ Quick reference
 
 #### **Target Audience**
-- Complete beginners to Krishna Tokenizer
+- Complete beginners to SanTOK Tokenizer
 - People who need very clear instructions
 - Users who want step-by-step guidance
 - Anyone who finds technical documentation difficult
@@ -88,7 +88,7 @@ Super simple, step-by-step guide for complete beginners to use Krishna Tokenizer
 📄 **[MATH_REFERENCE_CARD.md](MATH_REFERENCE_CARD.md)**
 
 #### **Purpose**
-Quick reference for basic math while using Krishna Tokenizer.
+Quick reference for basic math while using SanTOK Tokenizer.
 
 #### **Key Features**
 - **Quick Arithmetic:** Basic operations reference
@@ -98,7 +98,7 @@ Quick reference for basic math while using Krishna Tokenizer.
 - **Speed Calculations:** Speed formula and examples
 - **Ratio Understanding:** Compression ratio explanations
 - **Average Calculations:** How to calculate averages
-- **Krishna Tokenizer Results:** Understanding system results
+- **SanTOK Tokenizer Results:** Understanding system results
 
 #### **Content Coverage**
 - ✅ Basic arithmetic reference
@@ -109,7 +109,7 @@ Quick reference for basic math while using Krishna Tokenizer.
 - ✅ Speed calculations
 - ✅ Ratio explanations
 - ✅ Average calculations
-- ✅ Understanding Krishna Tokenizer results
+- ✅ Understanding SanTOK Tokenizer results
 - ✅ Quick calculations
 - ✅ Common mistakes to avoid
 - ✅ Practice problems with answers
@@ -126,7 +126,7 @@ Quick reference for basic math while using Krishna Tokenizer.
 
 ### **1. Complete Coverage**
 - **Mathematics:** All basic math concepts covered
-- **Krishna Tokenizer:** Complete usage guide
+- **SanTOK Tokenizer:** Complete usage guide
 - **Quick Reference:** Easy-to-find information
 - **Practice:** Lots of examples and problems
 
@@ -137,7 +137,7 @@ Quick reference for basic math while using Krishna Tokenizer.
 - **Progressive learning:** Builds from simple to complex
 
 ### **3. Practical Application**
-- **Real-world examples:** Math applied to Krishna Tokenizer
+- **Real-world examples:** Math applied to SanTOK Tokenizer
 - **System results:** Understanding what the system shows
 - **Performance metrics:** Understanding speed and efficiency
 - **File handling:** Understanding file sizes and processing
@@ -154,7 +154,7 @@ Quick reference for basic math while using Krishna Tokenizer.
 
 ### **Coverage Analysis**
 - **Mathematics Coverage:** 100% (All basic concepts covered)
-- **Krishna Tokenizer Coverage:** 100% (Complete usage guide)
+- **SanTOK Tokenizer Coverage:** 100% (Complete usage guide)
 - **Step-by-Step Coverage:** 100% (Every step explained)
 - **Practice Coverage:** 100% (Examples and problems included)
 - **Troubleshooting Coverage:** 100% (Common problems covered)
@@ -167,7 +167,7 @@ Quick reference for basic math while using Krishna Tokenizer.
 - **Maintainability:** ✅ Easy to update and improve
 
 ### **Audience Coverage**
-- **Complete Beginners:** ✅ Mathematics and Krishna Tokenizer guides
+- **Complete Beginners:** ✅ Mathematics and SanTOK Tokenizer guides
 - **Math-Challenged Users:** ✅ Comprehensive math help
 - **Quick Reference Users:** ✅ Math reference card
 - **Step-by-Step Learners:** ✅ Detailed instructions
@@ -179,7 +179,7 @@ Quick reference for basic math while using Krishna Tokenizer.
 
 ### **For Complete Beginners**
 1. **Start with:** [Mathematics for Beginners](MATHEMATICS_FOR_BEGINNERS.md)
-2. **Then read:** [Krishna Tokenizer for Beginners](KRISHNA_TOKENIZER_FOR_BEGINNERS.md)
+2. **Then read:** [SanTOK Tokenizer for Beginners](SanTOK_TOKENIZER_FOR_BEGINNERS.md)
 3. **Keep handy:** [Math Reference Card](MATH_REFERENCE_CARD.md)
 4. **Practice:** Work through the examples and problems
 
@@ -187,11 +187,11 @@ Quick reference for basic math while using Krishna Tokenizer.
 1. **Focus on:** [Mathematics for Beginners](MATHEMATICS_FOR_BEGINNERS.md)
 2. **Use:** [Math Reference Card](MATH_REFERENCE_CARD.md) for quick help
 3. **Practice:** Work through the practice problems
-4. **Apply:** Use math knowledge with Krishna Tokenizer
+4. **Apply:** Use math knowledge with SanTOK Tokenizer
 
 ### **For Quick Reference**
 1. **Use:** [Math Reference Card](MATH_REFERENCE_CARD.md) for quick math help
-2. **Reference:** [Krishna Tokenizer for Beginners](KRISHNA_TOKENIZER_FOR_BEGINNERS.md) for system help
+2. **Reference:** [SanTOK Tokenizer for Beginners](SanTOK_TOKENIZER_FOR_BEGINNERS.md) for system help
 3. **Check:** Use the quick reference sections
 4. **Practice:** Try the practice problems
 
@@ -204,7 +204,7 @@ Quick reference for basic math while using Krishna Tokenizer.
 - **Calculate percentages:** Understand percentages and ratios
 - **Work with file sizes:** Convert between KB, MB, GB
 - **Understand performance:** Speed, memory, efficiency
-- **Use Krishna Tokenizer:** Complete system usage
+- **Use SanTOK Tokenizer:** Complete system usage
 - **Interpret results:** Understand system output
 - **Solve problems:** Troubleshoot common issues
 
@@ -212,7 +212,7 @@ Quick reference for basic math while using Krishna Tokenizer.
 1. **Start:** Basic arithmetic (20 + 20 = 40)
 2. **Progress:** Percentages and ratios
 3. **Advance:** File sizes and performance
-4. **Apply:** Use with Krishna Tokenizer
+4. **Apply:** Use with SanTOK Tokenizer
 5. **Master:** Complete system understanding
 
 ---
@@ -237,7 +237,7 @@ Quick reference for basic math while using Krishna Tokenizer.
 
 ### **Documentation Created**
 - ✅ **Mathematics for Beginners:** Complete math guide
-- ✅ **Krishna Tokenizer for Beginners:** Complete usage guide
+- ✅ **SanTOK Tokenizer for Beginners:** Complete usage guide
 - ✅ **Math Reference Card:** Quick reference guide
 - ✅ **Documentation Index:** Updated with beginner docs
 - ✅ **Main README:** Updated with beginner links
@@ -262,7 +262,7 @@ Quick reference for basic math while using Krishna Tokenizer.
 
 ### **Getting Help**
 - **Math questions:** Refer to [Mathematics for Beginners](MATHEMATICS_FOR_BEGINNERS.md)
-- **Krishna Tokenizer questions:** Refer to [Krishna Tokenizer for Beginners](KRISHNA_TOKENIZER_FOR_BEGINNERS.md)
+- **SanTOK Tokenizer questions:** Refer to [SanTOK Tokenizer for Beginners](SanTOK_TOKENIZER_FOR_BEGINNERS.md)
 - **Quick reference:** Use [Math Reference Card](MATH_REFERENCE_CARD.md)
 - **Navigation:** Use [Documentation Index](DOCUMENTATION_INDEX.md)
 
@@ -276,6 +276,6 @@ Quick reference for basic math while using Krishna Tokenizer.
 
 **Documentation Status:** ✅ **COMPLETE AND BEGINNER-FRIENDLY**  
 **Mathematics Support:** ✅ **COMPREHENSIVE MATH HELP**  
-**Krishna Tokenizer Support:** ✅ **COMPLETE USAGE GUIDE**  
+**SanTOK Tokenizer Support:** ✅ **COMPLETE USAGE GUIDE**  
 **Quick Reference:** ✅ **EASY-TO-USE REFERENCE CARD**  
 **Target Audience:** ✅ **COMPLETE BEGINNERS FULLY SUPPORTED**

@@ -2,7 +2,7 @@
 """
 STABLE & REVERSIBLE TOKENIZATION TEST SUITE
 
-This script validates the enhanced Krishna Tokenizer with:
+This script validates the enhanced SanTOK Tokenizer with:
 - Perfect reversibility
 - Unique IDs by design
 - Deterministic behavior
@@ -10,7 +10,7 @@ This script validates the enhanced Krishna Tokenizer with:
 - Stability across iterations
 """
 
-from krishna_tokenizer import (
+from SanTOK_tokenizer import (
     tokenize_space, tokenize_bytes, tokenize_subword,
     reconstruct_from_tokens, validate_reversibility, validate_unique_ids,
     comprehensive_validation, stability_test, performance_benchmark

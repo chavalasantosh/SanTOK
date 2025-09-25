@@ -1,5 +1,5 @@
 """
-Thin wrapper CLI delegating to krishna_tokenizer.py runtime (already integrated).
+Thin wrapper CLI delegating to SanTOK_tokenizer.py runtime (already integrated).
 Clean, sectioned printing with optional compact/full modes.
 """
 
@@ -26,14 +26,14 @@ def _get(name):
 def main():
     print("Compact output? (y/n):")
     compact = _yes_no("")
-    # We call the main engine in krishna_tokenizer.py by asking user to run it.
+    # We call the main engine in SanTOK_tokenizer.py by asking user to run it.
     # This file provides structure only if imported runtime is present.
     try:
         engine_main = _get('main')
         engine_main()
     except RuntimeError as e:
         print(str(e))
-        print("Run krishna_tokenizer.py directly for full engine. This CLI is optional.")
+        print("Run SanTOK_tokenizer.py directly for full engine. This CLI is optional.")
 
 
 if __name__ == "__main__":

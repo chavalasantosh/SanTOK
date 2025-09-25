@@ -32,7 +32,7 @@ import {
 import { CompressionAnalysis } from '@/types'
 import { getMockCompressionAnalysis } from '@/lib/api'
 import { formatPercentage } from '@/utils'
-import { toast } from '@/components/simple-toast'
+import { toast } from '@/components/notification-toast'
 
 const CHART_COLORS = [
   '#8884d8', '#82ca9d', '#ffc658', '#ff7300', 

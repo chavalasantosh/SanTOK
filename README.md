@@ -4,9 +4,9 @@ Advanced, reversible tokenization with multi‑algorithm support, compression an
 
 ## TL;DR
 
-- CLI: `python krishna_tokenizer.py`
-- Simple HTTP API (std‑lib only): `py simple_backend.py` → `http://localhost:8000`
-- FastAPI API (full features): `py backend_server.py` (requires FastAPI/Uvicorn)
+- CLI: `python core_tokenizer.py`
+- Lightweight HTTP API (std‑lib only): `py lightweight_server.py` → `http://localhost:8000`
+- Main FastAPI Server (full features): `py main_server.py` (requires FastAPI/Uvicorn)
 - Frontend: `cd frontend && npm i && npm run dev` → `http://localhost:3000`
 
 The API returns engine digits so the UI IDs view matches the CLI output.
@@ -28,10 +28,10 @@ Optional (FastAPI backend):
 ```
 Krisna Tokenization/
 ├── frontend/                     # Next.js 14 + TypeScript web UI
-├── backend_server.py             # FastAPI backend (real engine wiring)
-├── simple_backend.py             # Std‑lib HTTP backend (now returns engine digits)
-├── krishna_tokenizer.py          # CLI engine & math
-├── tokenizer.py, token_math.py   # Tokenization + math primitives
+├── main_server.py                # Main FastAPI server (full feature set)
+├── lightweight_server.py         # Lightweight HTTP server (std‑lib only)
+├── core_tokenizer.py             # Core tokenization engine & CLI
+├── base_tokenizer.py, compression_algorithms.py   # Tokenization & compression primitives
 ├── tests/, docs/, examples/      # Tests, docs, demos
 └── ...
 ```
@@ -42,19 +42,19 @@ Krisna Tokenization/
 
 ### A) CLI (no deps)
 ```bash
-python krishna_tokenizer.py
+python core_tokenizer.py
 ```
 
 ### B) Simple HTTP API (std‑lib only)
 ```bash
-py simple_backend.py
+py lightweight_server.py
 # → http://localhost:8000
 ```
 
 ### C) FastAPI API (recommended for dev)
 ```bash
 pip install fastapi uvicorn pydantic
-py backend_server.py
+py main_server.py
 # → http://localhost:8000 (docs at /docs)
 ```
 
@@ -184,11 +184,11 @@ Made with care for stability, reversibility, and real‑time analysis.
 ### 1) Architecture (Sequence)
 
 ```text
-User → Frontend (/tokenize) → Backend (simple/FastAPI) → krishna_tokenizer
+User → Frontend (/tokenize) → Backend (simple/FastAPI) → SanTOK_tokenizer
      ←      JSON (tokens, frontendDigits, backendScaled, fingerprint) ←
 ```
 
-- The backend always delegates to `krishna_tokenizer.TextTokenizer(seed, embedding)` to compute:
+- The backend always delegates to `SanTOK_tokenizer.TextTokenizer(seed, embedding)` to compute:
   - `frontendDigits` (1..9)
   - `backendScaled` (per‑token scaled integers)
   - `contentIds` (deterministic)
@@ -310,7 +310,7 @@ jobs:
       - run: cd frontend && npm ci && npm run build
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
-      - run: python -m py_compile krishna_tokenizer.py tokenizer.py token_math.py
+      - run: python -m py_compile SanTOK_tokenizer.py tokenizer.py token_math.py
 ```
 
 ### 6) Developer Workflow

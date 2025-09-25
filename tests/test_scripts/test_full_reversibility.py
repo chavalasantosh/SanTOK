@@ -2,14 +2,14 @@
 """
 FULL REVERSIBILITY & OOV ELIMINATION TEST SUITE
 
-This script validates that the Krishna Tokenizer is:
+This script validates that the SanTOK Tokenizer is:
 - FULLY reversible (100% reconstruction)
 - NO OOV (Out-of-Vocabulary) issues
 - Handles ALL characters and edge cases
 - Perfect reconstruction guaranteed
 """
 
-from krishna_tokenizer import (
+from SanTOK_tokenizer import (
     tokenize_space, tokenize_bytes, tokenize_char, tokenize_word, tokenize_grammar, tokenize_subword,
     reconstruct_from_tokens, validate_reversibility, validate_unique_ids,
     comprehensive_validation, get_unique_ids

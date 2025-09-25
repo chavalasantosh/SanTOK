@@ -1,5 +1,5 @@
 @echo off
-echo 🎯 Starting Krishna Tokenizer Backend Server...
+echo 🎯 Starting SanTOK Main Server...
 echo ================================================
 
 REM Check if Python is available
@@ -27,6 +27,6 @@ echo 📚 API Documentation at: http://localhost:8000/docs
 echo 🔄 Press Ctrl+C to stop the server
 echo ================================================
 
-python backend_server.py
+python main_server.py
 
 pause

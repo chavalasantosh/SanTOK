@@ -1,5 +1,5 @@
 {
-  "name": "Krishna Tokenizer",
+  "name": "SanTOK Tokenizer",
   "version": "1.0.0",
   "features": [
     "space tokenization",

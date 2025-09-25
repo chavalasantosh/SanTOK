@@ -15,7 +15,7 @@ import {
 } from 'lucide-react'
 import { TokenizationResult, ViewMode } from '@/types'
 import { generateTokenColors, copyToClipboard, searchTokens } from '@/utils'
-import { toast } from '@/components/simple-toast'
+import { toast } from '@/components/notification-toast'
 
 interface TokenPreviewProps {
   result: TokenizationResult

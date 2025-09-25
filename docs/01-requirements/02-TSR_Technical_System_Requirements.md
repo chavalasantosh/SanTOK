@@ -1,5 +1,5 @@
 # TSR - Technical System Requirements
-## Krishna Tokenizer System
+## SanTOK Tokenizer System
 
 **Document Version:** 1.0  
 **Date:** September 23, 2025  
@@ -9,7 +9,7 @@
 
 ## 1. TECHNICAL OVERVIEW
 
-The Krishna Tokenizer Technical System Requirements document defines the detailed technical specifications, architecture, implementation details, and technical constraints for the universal tokenization system.
+The SanTOK Tokenizer Technical System Requirements document defines the detailed technical specifications, architecture, implementation details, and technical constraints for the universal tokenization system.
 
 ### 1.1 System Architecture
 - **Type:** Modular Python-based tokenization system
@@ -604,7 +604,7 @@ class TestCategories:
 
 #### Package Structure
 ```
-krishna_tokenizer/
+SanTOK_tokenizer/
 ├── __init__.py
 ├── core/
 │   ├── tokenizer.py

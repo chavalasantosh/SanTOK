@@ -1,5 +1,5 @@
 # FSR - Full System Requirements
-## Krishna Tokenizer System
+## SanTOK Tokenizer System
 
 **Document Version:** 1.0  
 **Date:** September 23, 2025  
@@ -9,7 +9,7 @@
 
 ## 1. EXECUTIVE SUMMARY
 
-The Krishna Tokenizer is a **universal, stable, reversible, and high-performance** tokenization system designed to handle any file type with perfect reconstruction capabilities. The system provides comprehensive tokenization strategies, compression algorithms, and universal file handling with unique IDs by design.
+The SanTOK Tokenizer is a **universal, stable, reversible, and high-performance** tokenization system designed to handle any file type with perfect reconstruction capabilities. The system provides comprehensive tokenization strategies, compression algorithms, and universal file handling with unique IDs by design.
 
 ### 1.1 System Purpose
 - **Primary Goal:** Universal text tokenization with perfect reversibility

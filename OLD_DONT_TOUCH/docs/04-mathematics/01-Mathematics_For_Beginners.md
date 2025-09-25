@@ -1,5 +1,5 @@
 # Mathematics for Beginners
-## Krishna Tokenizer - Complete Mathematical Guide
+## SanTOK Tokenizer - Complete Mathematical Guide
 
 **Document Version:** 1.0  
 **Date:** September 23, 2025  
@@ -9,7 +9,7 @@
 
 ## 🎯 **PURPOSE OF THIS DOCUMENT**
 
-This document is designed for users who need **very clear, step-by-step explanations** of all mathematical concepts used in the Krishna Tokenizer system. Every concept is broken down into the **simplest possible terms** with **detailed examples**.
+This document is designed for users who need **very clear, step-by-step explanations** of all mathematical concepts used in the SanTOK Tokenizer system. Every concept is broken down into the **simplest possible terms** with **detailed examples**.
 
 ---
 

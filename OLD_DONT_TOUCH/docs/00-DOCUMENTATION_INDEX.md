@@ -1,4 +1,4 @@
-# Krishna Tokenizer - Documentation Index
+# SanTOK Tokenizer - Documentation Index
 ## Complete Technical Documentation Suite
 
 **Document Version:** 2.0  
@@ -106,9 +106,9 @@ This documentation suite is organized in a **logical flow from start to end**, f
    - **Status:** ✅ Complete and Production Ready
 
 3. **[03-Math_Reference_Card.md](04-mathematics/03-Math_Reference_Card.md)**
-   - **Purpose:** Quick reference for basic math while using Krishna Tokenizer
+   - **Purpose:** Quick reference for basic math while using SanTOK Tokenizer
    - **Audience:** Users who need quick math help
-   - **Content:** Quick arithmetic reference, common multiplication tables, file size and time conversions, understanding Krishna Tokenizer results
+   - **Content:** Quick arithmetic reference, common multiplication tables, file size and time conversions, understanding SanTOK Tokenizer results
    - **Status:** ✅ Complete and Production Ready
 
 ---

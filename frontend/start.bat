@@ -1,5 +1,5 @@
 @echo off
-echo Starting Krishna Tokenizer Frontend...
+echo Starting SanTOK Tokenizer Frontend...
 echo.
 
 REM Check if node_modules exists

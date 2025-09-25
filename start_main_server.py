@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Start the Krishna Tokenizer Backend Server
+Start the SanTOK Tokenizer Backend Server
 """
 
 import subprocess
@@ -20,26 +20,26 @@ def install_requirements():
 
 def start_server():
     """Start the FastAPI server"""
-    print("🚀 Starting Krishna Tokenizer Backend Server...")
+    print("🚀 Starting SanTOK Tokenizer Backend Server...")
     print("📡 Server will be available at: http://localhost:8000")
     print("📚 API Documentation at: http://localhost:8000/docs")
     print("🔄 Press Ctrl+C to stop the server")
     print("-" * 50)
     
     try:
-        subprocess.run([sys.executable, "backend_server.py"])
+        subprocess.run([sys.executable, "main_server.py"])
     except KeyboardInterrupt:
         print("\n🛑 Server stopped by user")
     except Exception as e:
         print(f"❌ Error starting server: {e}")
 
 if __name__ == "__main__":
-    print("🎯 Krishna Tokenizer Backend Setup")
+    print("🎯 SanTOK Tokenizer Backend Setup")
     print("=" * 40)
     
     # Check if we're in the right directory
-    if not os.path.exists("krishna_tokenizer.py"):
-        print("❌ Error: krishna_tokenizer.py not found!")
+    if not os.path.exists("SanTOK_tokenizer.py"):
+        print("❌ Error: SanTOK_tokenizer.py not found!")
         print("Please run this script from the project root directory.")
         sys.exit(1)
     

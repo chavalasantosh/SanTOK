@@ -12,7 +12,7 @@ import {
 } from 'lucide-react'
 import { TokenizationResult } from '@/types'
 import { copyToClipboard } from '@/utils'
-import { toast } from '@/components/simple-toast'
+import { toast } from '@/components/notification-toast'
 
 interface FingerprintPanelProps {
   result: TokenizationResult

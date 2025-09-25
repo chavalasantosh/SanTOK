@@ -1,6 +1,6 @@
-# Krishna Tokenizer - Test Suite
+# SanTOK Tokenizer - Test Suite
 
-This directory contains comprehensive tests for the Krishna Tokenizer system.
+This directory contains comprehensive tests for the SanTOK Tokenizer system.
 
 ## 📁 Directory Structure
 
@@ -111,7 +111,7 @@ Tests include performance benchmarking to ensure:
 If tests fail:
 1. Check the detailed error messages in test reports
 2. Verify test data files exist in `test_data/`
-3. Ensure Krishna Tokenizer is properly installed
+3. Ensure SanTOK Tokenizer is properly installed
 4. Check system requirements and dependencies
 
 ## 🔄 Continuous Testing

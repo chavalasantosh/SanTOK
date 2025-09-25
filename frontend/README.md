@@ -1,6 +1,6 @@
-# Krishna Tokenizer Frontend
+# SanTOK Tokenizer Frontend
 
-A production-ready, interactive web frontend for the Krishna Tokenizer - an enterprise-grade text tokenization platform.
+A production-ready, interactive web frontend for the SanTOK Tokenizer - an enterprise-grade text tokenization platform.
 
 ## 🚀 Features
 
@@ -66,4 +66,4 @@ A production-ready, interactive web frontend for the Krishna Tokenizer - an ente
 
 ---
 
-**Krishna Tokenizer Frontend** - Enterprise-grade text processing made simple.
+**SanTOK Tokenizer Frontend** - Enterprise-grade text processing made simple.

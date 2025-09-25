@@ -1,5 +1,5 @@
 # Math Reference Card
-## Quick Reference for Krishna Tokenizer Users
+## Quick Reference for SanTOK Tokenizer Users
 
 **Document Version:** 1.0  
 **Date:** September 23, 2025  
@@ -9,7 +9,7 @@
 
 ## 🎯 **PURPOSE**
 
-This is a **quick reference card** for people who need help with basic math while using Krishna Tokenizer. Keep this handy when you're working with the system!
+This is a **quick reference card** for people who need help with basic math while using SanTOK Tokenizer. Keep this handy when you're working with the system!
 
 ---
 
@@ -188,7 +188,7 @@ A ratio compares two numbers.
 
 ---
 
-## 🔍 **UNDERSTANDING KRISHNA TOKENIZER RESULTS**
+## 🔍 **UNDERSTANDING SanTOK TOKENIZER RESULTS**
 
 ### **Token Counts**
 - **More tokens** = More pieces
@@ -283,7 +283,7 @@ A ratio compares two numbers.
 3. **Use a calculator to check**
 4. **Don't be afraid to ask for help**
 
-### **For Krishna Tokenizer:**
+### **For SanTOK Tokenizer:**
 1. **Start with simple text**
 2. **Try different options**
 3. **Look at the results carefully**

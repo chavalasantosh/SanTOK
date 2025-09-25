@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-  <tokenizer name="Krishna">
+  <tokenizer name="SanTOK">
     <features>
       <feature>Space Tokenization</feature>
       <feature>Word Tokenization</feature>

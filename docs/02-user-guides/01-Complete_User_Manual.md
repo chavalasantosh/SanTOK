@@ -1,8 +1,8 @@
-# Krishna Tokenizer Documentation
+# SanTOK Tokenizer Documentation
 
 ## Complete Step-by-Step Tokenization Process
 
-This document provides a comprehensive, detailed explanation of the Krishna-inspired text tokenization system. Every mathematical operation is shown explicitly, making it accessible to users with no prior technical background.
+This document provides a comprehensive, detailed explanation of the SanTOK-inspired text tokenization system. Every mathematical operation is shown explicitly, making it accessible to users with no prior technical background.
 
 ---
 
@@ -403,7 +403,7 @@ Entropy Index = 7.56 % 10 = 7
 
 ## Summary
 
-The Krishna Tokenizer system processes text through eight distinct steps:
+The SanTOK Tokenizer system processes text through eight distinct steps:
 
 1. **Sanitization**: Converts to lowercase and removes punctuation
 2. **Weighted Sum**: Multiplies each character's ASCII value by its position

@@ -17,11 +17,11 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 # Import your existing backend files
 try:
-    import krishna_tokenizer as KT
-    from krishna_tokenizer import _content_id  # convenience
+    import core_tokenizer as KT
+    from core_tokenizer import _content_id  # convenience
     print("✅ Successfully imported engine module")
 except ImportError as e:
-    print(f"❌ Error importing krishna_tokenizer.py: {e}")
+    print(f"❌ Error importing core_tokenizer.py: {e}")
     sys.exit(1)
 
 # Tokenizer mapping
@@ -141,7 +141,7 @@ class CORSHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
                     token_length = len(token_text)
                     token_type = tokenizer_type
                 else:
-                    # Complex token object from krishna_tokenizer
+                    # Complex token object from core_tokenizer
                     token_text = token.get('text', '')
                     token_id = frontend_digits[i] if i < len(frontend_digits) else i
                     token_length = token.get('length', len(token_text))

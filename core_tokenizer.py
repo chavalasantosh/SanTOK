@@ -1,7 +1,7 @@
 """
 Self-contained Text Tokenization System (no imports, no third-party).
 
-Run: python krishna_tokenizer.py
+Run: python SanTOK_tokenizer.py
 
 Features:
 - Tokenizers: space, word, char, grammar, subword(3), byte-like (ord digits)
@@ -2086,7 +2086,7 @@ def _write_text_file(file_path, content):
 def _write_formatted_txt_file(file_path, tokens, tokenizer_name):
     """Write tokens in a clean, readable format"""
     with open(file_path, "w", encoding="utf-8") as f:
-        f.write(f"KRISHNA TOKENIZER - {tokenizer_name.upper()} TOKENS\n")
+        f.write(f"SanTOK TOKENIZER - {tokenizer_name.upper()} TOKENS\n")
         f.write("=" * 60 + "\n\n")
         
         f.write(f"Total Tokens: {len(tokens)}\n")
@@ -2900,7 +2900,7 @@ def main():
     print("  ✓ UNIVERSAL FILE OUTPUT - Produces ANY format (JSON, CSV, XML, TXT, etc.)")
     print("  ✓ PRODUCTION READY - Fast, efficient, and robust")
     print()
-    print("The Krishna Tokenizer is UNIVERSAL and working perfectly!")
+    print("The SanTOK Tokenizer is UNIVERSAL and working perfectly!")
     # End of output
 
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Starting Krishna Tokenizer Frontend..."
+echo "Starting SanTOK Tokenizer Frontend..."
 echo
 
 # Check if node_modules exists

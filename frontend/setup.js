@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-console.log('🚀 Setting up Krishna Tokenizer Frontend...\n');
+console.log('🚀 Setting up SanTOK Tokenizer Frontend...\n');
 
 // Check if package.json exists
 if (!fs.existsSync('package.json')) {
@@ -37,7 +37,7 @@ try {
 // Create .env.local if it doesn't exist
 const envFile = '.env.local';
 if (!fs.existsSync(envFile)) {
-  const envContent = `# Krishna Tokenizer Frontend Environment Variables
+  const envContent = `# SanTOK Tokenizer Frontend Environment Variables
 NEXT_PUBLIC_API_URL=http://localhost:8000
 `;
   fs.writeFileSync(envFile, envContent);

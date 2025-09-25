@@ -1,8 +1,8 @@
-# UNIVERSAL FILE HANDLING - Krishna Tokenizer
+# UNIVERSAL FILE HANDLING - SanTOK Tokenizer
 
 ## 🎯 **MISSION ACCOMPLISHED**
 
-The Krishna Tokenizer now handles **ANY file as input** and produces **ANY file as output** - no matter what!
+The SanTOK Tokenizer now handles **ANY file as input** and produces **ANY file as output** - no matter what!
 
 ## ✅ **WHAT'S IMPLEMENTED**
 
@@ -130,14 +130,14 @@ Output: ALL formats      → Multiple files
 - ✅ **Stable & reliable** - Consistent operation
 
 ### **🚀 PRODUCTION READY**
-The Krishna Tokenizer is now **UNIVERSAL** and ready for production use with any file type!
+The SanTOK Tokenizer is now **UNIVERSAL** and ready for production use with any file type!
 
 ## 📝 **USAGE INSTRUCTIONS**
 
-1. **Run the tokenizer**: `python krishna_tokenizer.py`
+1. **Run the tokenizer**: `python SanTOK_tokenizer.py`
 2. **Choose input**: `2` (file path)
 3. **Enter path**: Any file path (with or without quotes)
 4. **Choose output**: `1-5` (JSON/CSV/XML/TXT/ALL)
 5. **Get results**: Complete tokenization + compression analysis
 
-**The Krishna Tokenizer now handles ANY file as input and produces ANY file as output!** 🎯
+**The SanTOK Tokenizer now handles ANY file as input and produces ANY file as output!** 🎯

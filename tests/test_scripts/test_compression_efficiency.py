@@ -2,14 +2,14 @@
 """
 COMPRESSION EFFICIENCY TEST SUITE
 
-This script validates the compression capabilities of the Krishna Tokenizer:
+This script validates the compression capabilities of the SanTOK Tokenizer:
 - Multiple compression algorithms (RLE, Pattern, Frequency, Adaptive)
 - Compression efficiency analysis
 - Full reversibility with compression
 - Performance impact assessment
 """
 
-from krishna_tokenizer import (
+from SanTOK_tokenizer import (
     tokenize_space, tokenize_bytes, tokenize_char, tokenize_word, tokenize_grammar, tokenize_subword,
     compress_tokens, decompress_tokens, calculate_compression_ratio,
     analyze_compression_efficiency, reconstruct_from_tokens

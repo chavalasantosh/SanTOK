@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Krishna Tokenizer has been completely redesigned to ensure **FULL reversibility** and **complete elimination of OOV (Out-of-Vocabulary) issues**. This is not just reversible - it's **PERFECTLY reversible** with **ZERO information loss**.
+The SanTOK Tokenizer has been completely redesigned to ensure **FULL reversibility** and **complete elimination of OOV (Out-of-Vocabulary) issues**. This is not just reversible - it's **PERFECTLY reversible** with **ZERO information loss**.
 
 ## Core Requirements Met
 
@@ -224,7 +224,7 @@ for text in oov_test_cases:
 
 ### Basic Usage
 ```python
-from krishna_tokenizer import tokenize_char, reconstruct_from_tokens
+from SanTOK_tokenizer import tokenize_char, reconstruct_from_tokens
 
 # Tokenize with full reversibility
 text = "Hello 世界! Special chars: !@#$%^&*()"
@@ -237,7 +237,7 @@ assert reconstructed == text  # Always True
 
 ### Advanced Usage
 ```python
-from krishna_tokenizer import comprehensive_validation
+from SanTOK_tokenizer import comprehensive_validation
 
 # Comprehensive validation
 results = comprehensive_validation("Hello 世界! 😀😁😂")
@@ -249,7 +249,7 @@ for name, validation in results["validations"].items():
 
 ## Conclusion
 
-The Krishna Tokenizer now provides:
+The SanTOK Tokenizer now provides:
 
 - ✅ **FULL reversibility** (100% reconstruction guaranteed)
 - ✅ **NO OOV issues** (handles all characters)

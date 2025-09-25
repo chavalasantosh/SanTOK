@@ -114,7 +114,7 @@ export const useAppStore = create<AppState>()(
       setError: (error) => set({ error }),
     }),
     {
-      name: 'krishna-tokenizer-storage',
+      name: 'SanTOK-tokenizer-storage',
       partialize: (state) => ({
         theme: state.theme,
         tokenizerOptions: state.tokenizerOptions,

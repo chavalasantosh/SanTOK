@@ -17,30 +17,30 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 # Import your existing backend files (aliased to avoid symbol shadowing)
 try:
-    import krishna_tokenizer as KT
-    from krishna_tokenizer import _content_id
+    import core_tokenizer as KT
+    from core_tokenizer import _content_id
     print("✅ Successfully imported engine module")
 except ImportError as e:
-    print(f"❌ Error importing krishna_tokenizer.py: {e}")
+    print(f"❌ Error importing core_tokenizer.py: {e}")
     sys.exit(1)
 
 try:
-    import tokenizer as TK
-    print("✅ Successfully imported tokenizer.py")
+    import base_tokenizer as TK
+    print("✅ Successfully imported base_tokenizer.py")
 except ImportError as e:
-    print(f"⚠️  Warning: Could not import tokenizer.py: {e}")
+    print(f"⚠️  Warning: Could not import base_tokenizer.py: {e}")
 
 try:
-    from token_math import *  # noqa: F401,F403 (optional additional helpers)
-    print("✅ Successfully imported token_math.py")
+    from compression_algorithms import *  # noqa: F401,F403 (optional additional helpers)
+    print("✅ Successfully imported compression_algorithms.py")
 except ImportError as e:
-    print(f"⚠️  Warning: Could not import token_math.py: {e}")
+    print(f"⚠️  Warning: Could not import compression_algorithms.py: {e}")
 
 try:
-    from uid import *  # noqa: F401,F403 (optional)
-    print("✅ Successfully imported uid.py")
+    from unique_identifier import *  # noqa: F401,F403 (optional)
+    print("✅ Successfully imported unique_identifier.py")
 except ImportError as e:
-    print(f"⚠️  Warning: Could not import uid.py: {e}")
+    print(f"⚠️  Warning: Could not import unique_identifier.py: {e}")
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -88,7 +88,7 @@ class TokenizationResult(BaseModel):
     compressionRatio: float
     reversibility: bool
     fingerprint: Dict[str, Any]
-    # Extra data to mirror krishna_tokenizer engine
+    # Extra data to mirror SanTOK_tokenizer engine
     frontendDigits: Optional[List[int]] = None
     backendScaled: Optional[List[int]] = None
     contentIds: Optional[List[int]] = None
@@ -211,7 +211,7 @@ async def tokenize_text(request: TokenizationRequest):
         
         # Tokenize
         tokens = tokenizer_func(processed_text)
-        # Build engine digits using krishna_tokenizer streams
+        # Build engine digits using SanTOK_tokenizer streams
         seed = request.seed if request.seed is not None else 12345
         embedding_flag = bool(request.embedding_bit) or bool(request.embedding)
         try:

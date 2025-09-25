@@ -1,4 +1,4 @@
-# Krishna Tokenizer - Super Simple Guide
+# SanTOK Tokenizer - Super Simple Guide
 ## For People Who Need Very Clear, Step-by-Step Instructions
 
 **Document Version:** 1.0  
@@ -9,13 +9,13 @@
 
 ## 🎯 **WHAT IS THIS GUIDE FOR?**
 
-This guide is for people who need **very clear, step-by-step instructions** to use the Krishna Tokenizer. Every step is explained in **simple words** with **lots of examples**.
+This guide is for people who need **very clear, step-by-step instructions** to use the SanTOK Tokenizer. Every step is explained in **simple words** with **lots of examples**.
 
 ---
 
 ## 📚 **TABLE OF CONTENTS**
 
-1. [What is Krishna Tokenizer?](#1-what-is-krishna-tokenizer)
+1. [What is SanTOK Tokenizer?](#1-what-is-SanTOK-tokenizer)
 2. [How to Install (Step by Step)](#2-how-to-install-step-by-step)
 3. [How to Run (Step by Step)](#3-how-to-run-step-by-step)
 4. [Understanding the Menu (Step by Step)](#4-understanding-the-menu-step-by-step)
@@ -31,14 +31,14 @@ This guide is for people who need **very clear, step-by-step instructions** to u
 
 ---
 
-## 1. WHAT IS KRISHNA TOKENIZER?
+## 1. WHAT IS SanTOK TOKENIZER?
 
 ### 1.1 Simple Explanation
-**Krishna Tokenizer** is a tool that breaks text into smaller pieces called **tokens**.
+**SanTOK Tokenizer** is a tool that breaks text into smaller pieces called **tokens**.
 
 **Think of it like this:**
 - You have a sentence: "Hello World"
-- Krishna Tokenizer breaks it into pieces: "Hello" and "World"
+- SanTOK Tokenizer breaks it into pieces: "Hello" and "World"
 - Each piece is called a **token**
 
 ### 1.2 What Can It Do?
@@ -76,11 +76,11 @@ This guide is for people who need **very clear, step-by-step instructions** to u
 4. Make sure to check "Add Python to PATH"
 5. Click "Install Now"
 
-### 2.3 Step 3: Download Krishna Tokenizer
+### 2.3 Step 3: Download SanTOK Tokenizer
 **What to do:**
 1. Download all the files to a folder
 2. Make sure you have these files:
-   - `krishna_tokenizer.py`
+   - `SanTOK_tokenizer.py`
    - `main.py`
    - `tokenizer.py`
    - `token_math.py`
@@ -89,8 +89,8 @@ This guide is for people who need **very clear, step-by-step instructions** to u
 ### 2.4 Step 4: Test Installation
 **What to do:**
 1. Open Command Prompt/Terminal
-2. Go to the folder with Krishna Tokenizer
-3. Type: `python krishna_tokenizer.py`
+2. Go to the folder with SanTOK Tokenizer
+3. Type: `python SanTOK_tokenizer.py`
 4. Press Enter
 
 **What you should see:**
@@ -115,18 +115,18 @@ This guide is for people who need **very clear, step-by-step instructions** to u
 **On Linux:**
 1. Press Ctrl + Alt + T
 
-### 3.2 Step 2: Go to Krishna Tokenizer Folder
+### 3.2 Step 2: Go to SanTOK Tokenizer Folder
 **What to do:**
 1. Type: `cd "path to your folder"`
 2. Press Enter
 
 **Example:**
-- If your folder is on Desktop: `cd "C:\Users\YourName\Desktop\Krishna Tokenization"`
-- If your folder is in Downloads: `cd "C:\Users\YourName\Downloads\Krishna Tokenization"`
+- If your folder is on Desktop: `cd "C:\Users\YourName\Desktop\SanTOK Tokenization"`
+- If your folder is in Downloads: `cd "C:\Users\YourName\Downloads\SanTOK Tokenization"`
 
 ### 3.3 Step 3: Run the Program
 **What to do:**
-1. Type: `python krishna_tokenizer.py`
+1. Type: `python SanTOK_tokenizer.py`
 2. Press Enter
 
 **What you should see:**
@@ -478,7 +478,7 @@ space: ✓ STABLE (rev:True, ids:True, det:True, perf:0.000066s)
 ### 12.1 Example 1: Simple Text
 **Text:** "Hello World"
 **Steps:**
-1. Run: `python krishna_tokenizer.py`
+1. Run: `python SanTOK_tokenizer.py`
 2. Choose: `1` (text mode)
 3. Enter: `Hello World`
 4. Choose: `y` (show readable content)
@@ -493,7 +493,7 @@ space: ✓ STABLE (rev:True, ids:True, det:True, perf:0.000066s)
 ### 12.2 Example 2: Text with Numbers
 **Text:** "Hello 123 World"
 **Steps:**
-1. Run: `python krishna_tokenizer.py`
+1. Run: `python SanTOK_tokenizer.py`
 2. Choose: `1` (text mode)
 3. Enter: `Hello 123 World`
 4. Choose: `y` (show readable content)
@@ -508,7 +508,7 @@ space: ✓ STABLE (rev:True, ids:True, det:True, perf:0.000066s)
 ### 12.3 Example 3: File Processing
 **File:** A text file with content "This is a test file"
 **Steps:**
-1. Run: `python krishna_tokenizer.py`
+1. Run: `python SanTOK_tokenizer.py`
 2. Choose: `2` (file mode)
 3. Enter: `C:\Users\YourName\Desktop\test.txt`
 4. Choose: `y` (show readable content)
@@ -526,8 +526,8 @@ space: ✓ STABLE (rev:True, ids:True, det:True, perf:0.000066s)
 
 ### 13.1 How to Start
 1. Open Command Prompt/Terminal
-2. Go to Krishna Tokenizer folder
-3. Type: `python krishna_tokenizer.py`
+2. Go to SanTOK Tokenizer folder
+3. Type: `python SanTOK_tokenizer.py`
 4. Press Enter
 
 ### 13.2 Menu Options
@@ -537,7 +537,7 @@ space: ✓ STABLE (rev:True, ids:True, det:True, perf:0.000066s)
 - **Output format:** `1` = JSON, `2` = CSV, `3` = XML, `4` = TXT, `5` = ALL
 
 ### 13.3 Common Commands
-- **Run program:** `python krishna_tokenizer.py`
+- **Run program:** `python SanTOK_tokenizer.py`
 - **Check Python:** `python --version`
 - **List files:** `dir` (Windows) or `ls` (Mac/Linux)
 - **Change folder:** `cd "folder path"`
@@ -589,7 +589,7 @@ space: ✓ STABLE (rev:True, ids:True, det:True, perf:0.000066s)
 ## 15. CONCLUSION
 
 ### 15.1 What You've Learned
-1. **How to install** Krishna Tokenizer
+1. **How to install** SanTOK Tokenizer
 2. **How to run** the program
 3. **How to use** text and file modes
 4. **How to understand** the results

@@ -1,4 +1,4 @@
-# Krishna Tokenizer
+# SanTOK Tokenizer
 
 A **universal, stable, reversible, and high-performance** tokenization system with **unique IDs by design**.
 
@@ -15,7 +15,7 @@ A **universal, stable, reversible, and high-performance** tokenization system wi
 
 ```bash
 # Run the tokenizer
-python krishna_tokenizer.py
+python SanTOK_tokenizer.py
 
 # Run comprehensive tests
 cd tests
@@ -25,15 +25,15 @@ python run_tests.py
 ## 📁 Project Structure
 
 ```
-Krishna Tokenization/
-├── krishna_tokenizer.py      # Main tokenizer implementation
+SanTOK Tokenization/
+├── SanTOK_tokenizer.py      # Main tokenizer implementation
 ├── main.py                   # Entry point
 ├── tokenizer.py              # Core tokenization logic
 ├── token_math.py             # Mathematical utilities
 ├── uid.py                    # Unique ID generation
 ├── docs/                     # Documentation
-│   ├── Krishna_Tokenizer_Documentation.md
-│   ├── Krishna_Tokenizer_Simple_Guide.md
+│   ├── SanTOK_Tokenizer_Documentation.md
+│   ├── SanTOK_Tokenizer_Simple_Guide.md
 │   ├── STABLE_REVERSIBLE_TOKENIZATION.md
 │   ├── FULL_REVERSIBILITY_OOV_ELIMINATION.md
 │   ├── COMPRESSION_EFFICIENCY.md
@@ -42,7 +42,7 @@ Krishna Tokenization/
 │   ├── demo_enhanced_tokenization.py
 │   ├── demo_stable_system.py
 │   ├── demo_universal_files.py
-│   └── KrishnaTokenizer_Tutorial.ipynb
+│   └── SanTOKTokenizer_Tutorial.ipynb
 ├── tests/                    # Comprehensive test suite
 │   ├── test_data/           # Test input files
 │   ├── test_scripts/        # Test implementations
@@ -106,7 +106,7 @@ Krishna Tokenization/
 
 ### Basic Usage
 ```python
-from krishna_tokenizer import all_tokenizations
+from SanTOK_tokenizer import all_tokenizations
 
 text = "Hello World!"
 tokens = all_tokenizations(text)
@@ -121,7 +121,7 @@ byte_tokens = tokens["byte"]
 ### File Processing
 ```python
 # Process any file type
-python krishna_tokenizer.py
+python SanTOK_tokenizer.py
 # Select: 2 (file path)
 # Enter: path/to/your/file
 # Choose: y (show readable content)
@@ -188,7 +188,7 @@ python test_scripts/test_compression_efficiency.py
 ### **🧮 Mathematics Documentation**
 - [**01-Mathematics For Beginners**](docs/04-mathematics/01-Mathematics_For_Beginners.md) - Complete mathematical guide with step-by-step explanations
 - [**02-Tokenization Mathematics**](docs/04-mathematics/02-Tokenization_Mathematics.md) - Complete mathematical guide for tokenization concepts and calculations
-- [**03-Math Reference Card**](docs/04-mathematics/03-Math_Reference_Card.md) - Quick reference for basic math while using Krishna Tokenizer
+- [**03-Math Reference Card**](docs/04-mathematics/03-Math_Reference_Card.md) - Quick reference for basic math while using SanTOK Tokenizer
 
 ### **📊 Project Documentation**
 - [**01-Enhanced Tokenization Summary**](docs/05-project-docs/01-Enhanced_Tokenization_Summary.md) - Feature overview and benefits
@@ -201,7 +201,7 @@ python test_scripts/test_compression_efficiency.py
 - [Enhanced Tokenization Demo](examples/demo_enhanced_tokenization.py)
 - [Stable System Demo](examples/demo_stable_system.py)
 - [Universal Files Demo](examples/demo_universal_files.py)
-- [Jupyter Tutorial](examples/KrishnaTokenizer_Tutorial.ipynb)
+- [Jupyter Tutorial](examples/SanTOKTokenizer_Tutorial.ipynb)
 
 ## 🏆 Key Benefits
 
@@ -222,4 +222,4 @@ This project represents a complete implementation of a universal tokenization sy
 
 ---
 
-**Krishna Tokenizer** - Universal, Stable, Reversible, High-Performance Tokenization System
+**SanTOK Tokenizer** - Universal, Stable, Reversible, High-Performance Tokenization System

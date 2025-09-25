@@ -13,7 +13,7 @@ import {
   CheckCircle,
   AlertCircle
 } from 'lucide-react'
-import { toast } from '@/components/simple-toast'
+import { toast } from '@/components/notification-toast'
 
 interface FileUploadProps {
   onFileSelect: (content: string) => void
