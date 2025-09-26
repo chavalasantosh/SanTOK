@@ -1627,18 +1627,16 @@ def collapse_spaces(s):
         else:
             out.append(ch)
             prev_space = False
-    # trim leading/trailing space
+    # trim leading space only (preserve trailing space for tokenization)
     # manual strip
     i = 0
     n = _len(out)
     while i < n and out[i] == " ":
         i += 1
-    j = n - 1
-    while j >= i and out[j] == " ":
-        j -= 1
+    # Don't trim trailing space - preserve it for accurate tokenization
     res = ""
     k = i
-    while k <= j:
+    while k < n:
         res += out[k]
         k += 1
     return res
@@ -1858,6 +1856,44 @@ def fold_to_digit_9_centric(m, embedding_bit):
     return d
 
 
+def hash_token(token_text):
+    """
+    Hash calculation using h = h * 31 + char_code formula.
+    Returns deterministic hash value for token.
+    """
+    h = 0
+    for ch in token_text:
+        h = h * 31 + ord(ch)
+    return h
+
+
+def hash_to_digit(token_text):
+    """
+    Convert token to digit using hash method.
+    Returns digit 0-9.
+    """
+    hash_val = hash_token(token_text)
+    return hash_val % 10
+
+
+def combined_digit(token_text, embedding_bit=False):
+    """
+    Combined digit generation using both weighted sum and hash methods.
+    Formula: (Weighted_Digit × 9 + Hash_Digit) % 9 + 1
+    Returns digit 1-9.
+    """
+    # Method 1: Weighted sum + digital root
+    weighted_sum = weighted_char_sum(token_text)
+    weighted_digit = fold_to_digit_9_centric(weighted_sum, embedding_bit)
+    
+    # Method 2: Hash + mod 10
+    hash_digit = hash_to_digit(token_text)
+    
+    # Combination: (Weighted_Digit × 9 + Hash_Digit) % 9 + 1
+    combined = (weighted_digit * 9 + hash_digit) % 9 + 1
+    return combined
+
+
 # ------------------------------- UIDs ----------------------------------
 
 class XorShift64Star:
@@ -1928,7 +1964,7 @@ def run_once(text, seed, embedding_bit):
             i = 0
             for rec in with_neighbors:
                 backend = compose_backend_number(rec["text"], i, rec["uid"], rec["prev_uid"], rec["next_uid"], embedding_bit)
-                digit = fold_to_digit_9_centric(backend, embedding_bit)
+                digit = combined_digit(rec["text"], embedding_bit)
                 digits_signature.append(digit)
                 backends.append(backend)
                 i += 1
@@ -2045,7 +2081,7 @@ def compute_text_value_summary(sanitized_text, embedding_bit):
     # Use uid=0 and no neighbors for whole-text summary
     backend = s_num ^ 0
     backend = backend + 0 + 0 + (1 if embedding_bit else 0)
-    signature_digit = fold_to_digit_9_centric(backend, embedding_bit)
+    signature_digit = combined_digit(sanitized_text, embedding_bit)
     # compat: treat whole text as one token with base=3 and uid=1
     compat_digit = (1 * 3) % 10
     final_digit = digital_root_9(signature_digit * 9 + compat_digit)
@@ -2577,7 +2613,7 @@ class TextTokenizer:
                 i = 0
                 for rec in with_neighbors:
                     backend = compose_backend_number(rec["text"], i, rec["uid"], rec["prev_uid"], rec["next_uid"], self.embedding_bit)
-                    digit = fold_to_digit_9_centric(backend, self.embedding_bit)
+                    digit = combined_digit(rec["text"], self.embedding_bit)
                     scaled = (backend % 100000)
                     # global id: combine uid, content_id, index, and stream hash
                     sid = ts.stream_id
@@ -2672,8 +2708,8 @@ def main():
         "compat_digit": summary2["compat_digit"],
         "final_digit": summary2["final_digit"],
     })
-    # Clear representation: character count and token counts per stream (display view)
-    toks_preview = all_tokenizations(display_text)
+    # Clear representation: character count and token counts per stream (use math_text for consistency)
+    toks_preview = all_tokenizations(math_text)
     
     # Show enhanced tokenization analysis
     print("\n=== ENHANCED TOKENIZATION ANALYSIS ===")
@@ -2792,46 +2828,17 @@ def main():
             words.append(rec["text"])
         print("summary_words (first 10):", words[:10])
         print("summary_characters:", _count_chars(display_text))
-    # Compute both modes on math view (numbers only)
+    # Use ONLY the new combined algorithm (no mixing with old compat)
     out_signature = run_once(math_text, seed, embedding_bit)
-    out_compat = run_once_compat(math_text)
-    # Combine into a single digit per token: 9-centric digital root of (9*signature + compat)
-    # Align by position per tokenizer stream (use min length)
+    # The combined algorithm is already in out_signature["digits"] - no need to mix with compat
     combined = {}
     # Include all tokenization strategies
     tokenizer_names = ("space", "word", "char", "grammar", "subword", "subword_bpe", "subword_syllable", "subword_frequency", "byte")
     
     for name in tokenizer_names:
-        if name in out_signature and name in out_compat:
-            a = out_signature[name]["digits"]
-            b = out_compat[name]
-            # compute min length
-            la = 0
-            for _ in a:
-                la += 1
-            lb = 0
-            for _ in b:
-                lb += 1
-            m = la if la < lb else lb
-            digits = []
-            i = 0
-            while i < m:
-                # weight signature by 9 to emphasize computational 9, then add compat digit
-                val = (a[i] * 9) + b[i]
-                # fold to 1..9
-                d = digital_root_9(val)
-                digits.append(d)
-                i += 1
-            # if lengths differ, append remaining from signature and fold
-            while i < la:
-                d = digital_root_9(a[i] * 9)
-                digits.append(d)
-                i += 1
-            while i < lb:
-                d = digital_root_9(b[i])
-                digits.append(d)
-                i += 1
-            combined[name] = digits
+        if name in out_signature:
+            # Use the combined algorithm digits directly (no mixing)
+            combined[name] = out_signature[name]["digits"]
     # Build OOP streams and write rows
     engine = TextTokenizer(seed, embedding_bit)
     streams_oop = engine.build(math_text)
