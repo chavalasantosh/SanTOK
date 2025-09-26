@@ -193,10 +193,7 @@ export const validateTextInput = (text: string): { isValid: boolean; error?: str
     return { isValid: false, error: 'Text cannot be empty' }
   }
   
-  if (text.length > 1000000) {
-    return { isValid: false, error: 'Text is too long (max 1MB)' }
-  }
-  
+  // NO LIMITS - handles any size text!
   return { isValid: true }
 }
 

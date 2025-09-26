@@ -99,6 +99,7 @@ class SanTOKHandler(http.server.BaseHTTPRequestHandler):
             response = {
                 "success": True,
                 "tokens": tokens,
+                "original_text": text,
                 "tokenizer_type": tokenizer_type,
                 "token_count": len(tokens),
                 "processing_time_ms": round((end_time - start_time) * 1000, 2),

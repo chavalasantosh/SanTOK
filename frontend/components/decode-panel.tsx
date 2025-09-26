@@ -269,8 +269,9 @@ export function DecodePanel({ tokens = [], tokenizerType = 'word', onDecode }: D
             <Textarea
               value={decodedText}
               readOnly
-              className="min-h-[120px] bg-muted/50"
+              className="min-h-[120px] bg-muted/50 font-mono text-sm whitespace-pre-wrap"
               placeholder="Decoded text will appear here..."
+              style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-all' }}
             />
             
             <div className="text-xs text-muted-foreground">

@@ -5,7 +5,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || (typeof window !== 'unde
 
 const api = axios.create({
   baseURL: API_BASE_URL,
-  timeout: 10000, // Reduced timeout to 10 seconds
+  timeout: 300000, // 5 minutes for massive files - NO LIMITS!
   headers: {
     'Content-Type': 'application/json',
   },

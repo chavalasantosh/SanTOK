@@ -16,6 +16,7 @@ export interface TokenizationResult {
   memoryUsage: number
   compressionRatio?: number
   reversibility?: boolean
+  originalText?: string  // Include original text for comparison
   fingerprint?: {
     signatureDigit: number
     compatDigit: number

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SanTOK Dashboard Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #1a1a1a;
+            color: white;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #3b82f6;
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        .header p {
+            color: #9ca3af;
+            margin: 10px 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .card {
+            background: #2d2d2d;
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid #404040;
+        }
+        .card h3 {
+            color: #3b82f6;
+            margin-top: 0;
+        }
+        .input-area {
+            margin-bottom: 20px;
+        }
+        .input-area textarea {
+            width: 100%;
+            height: 150px;
+            background: #1a1a1a;
+            border: 1px solid #404040;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        .options {
+            margin-bottom: 20px;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 10px;
+            color: #e5e7eb;
+        }
+        .options select {
+            width: 100%;
+            padding: 8px;
+            background: #1a1a1a;
+            border: 1px solid #404040;
+            color: white;
+            border-radius: 4px;
+        }
+        .options input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        .button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        .button:hover {
+            background: #2563eb;
+        }
+        .button:disabled {
+            background: #6b7280;
+            cursor: not-allowed;
+        }
+        .results {
+            background: #1a1a1a;
+            border: 1px solid #404040;
+            border-radius: 4px;
+            padding: 15px;
+            min-height: 200px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .stat {
+            background: #2d2d2d;
+            padding: 15px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3b82f6;
+        }
+        .stat-label {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 SanTOK Dashboard</h1>
+            <p>Advanced Text Tokenization with 9 Algorithms & Perfect Reconstruction</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>📝 Text Input</h3>
+                <div class="input-area">
+                    <textarea id="textInput" placeholder="Enter text to tokenize...">Hello, I'm a data scientist. I hold a B.Tech in Artificial Intelligence and Data Science, and my career has been a blend of Data Engineering, BI Development, and AI Engineering.</textarea>
+                </div>
+                
+                <div class="options">
+                    <label>
+                        <strong>Tokenizer Type:</strong>
+                        <select id="tokenizerType">
+                            <option value="word">Word Tokenization</option>
+                            <option value="char">Character Tokenization</option>
+                            <option value="space">Space Tokenization</option>
+                            <option value="subword">Subword Tokenization</option>
+                            <option value="grammar">Grammar Tokenization</option>
+                            <option value="syllable">Syllable Tokenization</option>
+                            <option value="byte">Byte Tokenization</option>
+                            <option value="bpe">BPE Tokenization</option>
+                            <option value="frequency">Frequency Tokenization</option>
+                        </select>
+                    </label>
+                    
+                    <label>
+                        <input type="checkbox" id="lowercase"> Lowercase text
+                    </label>
+                    
+                    <label>
+                        <input type="checkbox" id="dropSpecials"> Drop special characters
+                    </label>
+                    
+                    <label>
+                        <input type="checkbox" id="collapseRepeats"> Collapse repeats
+                    </label>
+                </div>
+
+                <button class="button" onclick="tokenizeText()">
+                    ⚡ Tokenize Text
+                </button>
+            </div>
+
+            <div class="card">
+                <h3>📊 Results</h3>
+                <div id="results" class="results">Click "Tokenize Text" to see results...</div>
+                
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-value" id="tokenCount">0</div>
+                        <div class="stat-label">Tokens</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="charCount">0</div>
+                        <div class="stat-label">Characters</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="processingTime">0ms</div>
+                        <div class="stat-label">Time</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="compressionRatio">0%</div>
+                        <div class="stat-label">Compression</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function tokenizeText() {
+            const text = document.getElementById('textInput').value;
+            const tokenizerType = document.getElementById('tokenizerType').value;
+            const lowercase = document.getElementById('lowercase').checked;
+            const dropSpecials = document.getElementById('dropSpecials').checked;
+            const collapseRepeats = document.getElementById('collapseRepeats').checked;
+
+            if (!text.trim()) {
+                alert('Please enter some text to tokenize!');
+                return;
+            }
+
+            const button = document.querySelector('.button');
+            const results = document.getElementById('results');
+            
+            button.disabled = true;
+            button.textContent = '⏳ Processing...';
+            results.textContent = 'Processing your text...';
+
+            try {
+                const startTime = Date.now();
+                
+                // Simple client-side tokenization for demo
+                let processedText = text;
+                if (lowercase) processedText = processedText.toLowerCase();
+                if (dropSpecials) processedText = processedText.replace(/[^a-zA-Z0-9\s]/g, '');
+                if (collapseRepeats) processedText = processedText.replace(/(.)\1+/g, '$1');
+
+                let tokens = [];
+                switch(tokenizerType) {
+                    case 'word':
+                        tokens = processedText.split(/\s+/).filter(w => w.length > 0);
+                        break;
+                    case 'char':
+                        tokens = processedText.split('');
+                        break;
+                    case 'space':
+                        tokens = processedText.split(/(\s+)/);
+                        break;
+                    case 'subword':
+                        tokens = processedText.match(/.{1,3}/g) || [];
+                        break;
+                    case 'grammar':
+                        tokens = processedText.split(/(\W+)/).filter(t => t.length > 0);
+                        break;
+                    case 'syllable':
+                        tokens = processedText.split(/([aeiouAEIOU]+)/).filter(t => t.length > 0);
+                        break;
+                    case 'byte':
+                        tokens = Array.from(new TextEncoder().encode(processedText));
+                        break;
+                    case 'bpe':
+                        tokens = processedText.split(/(th|er|an|in|on|at|ed|re|he|as|it|is|be|we|or|by|my|to|of|and|a|in|is|it|you|that|he|was|for|on|are|as|with|his|they|i|at|be|this|have|from|or|one|had|by|word|but|not|what|all|were|when|we|there|can|an|your|which|their|said|if|do|will|each|how|them|she|or|many|some|these|would|other|into|has|more|her|two|like|him|see|time|could|no|make|than|first|been|call|who|its|now|find|long|down|day|did|get|come|made|may|part)/gi);
+                        break;
+                    case 'frequency':
+                        tokens = processedText.split(/(er|an|in|on|at|ed|re|he|as|it|is|be|we|or|by|my|to|of|and|a|in|is|it|you|that|he|was|for|on|are|as|with|his|they|i|at|be|this|have|from|or|one|had|by|word|but|not|what|all|were|when|we|there|can|an|your|which|their|said|if|do|will|each|how|them|she|or|many|some|these|would|other|into|has|more|her|two|like|him|see|time|could|no|make|than|first|been|call|who|its|now|find|long|down|day|did|get|come|made|may|part)/gi);
+                        break;
+                }
+
+                const processingTime = Date.now() - startTime;
+                const compressionRatio = ((text.length - tokens.length) / text.length * 100).toFixed(1);
+
+                // Update results
+                results.textContent = `Tokens: ${tokens.length}\n\n${tokens.map((token, i) => `${i}: "${token}"`).join('\n')}`;
+                
+                // Update stats
+                document.getElementById('tokenCount').textContent = tokens.length;
+                document.getElementById('charCount').textContent = text.length;
+                document.getElementById('processingTime').textContent = processingTime + 'ms';
+                document.getElementById('compressionRatio').textContent = compressionRatio + '%';
+
+            } catch (error) {
+                results.textContent = `Error: ${error.message}`;
+            } finally {
+                button.disabled = false;
+                button.textContent = '⚡ Tokenize Text';
+            }
+        }
+
+        // Auto-tokenize on text change
+        document.getElementById('textInput').addEventListener('input', () => {
+            setTimeout(tokenizeText, 1000);
+        });
+    </script>
+</body>
+</html>

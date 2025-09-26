@@ -89,6 +89,7 @@ class TokenizationResult(BaseModel):
     compressionRatio: float
     reversibility: bool
     fingerprint: Dict[str, Any]
+    originalText: Optional[str] = None  # Include original text for comparison
     # Extra data to mirror SanTOK core tokenizer engine
     frontendDigits: Optional[List[int]] = None
     backendScaled: Optional[List[int]] = None
@@ -279,6 +280,7 @@ async def tokenize_text(request: TokenizationRequest):
             compressionRatio=compression_ratio,
             reversibility=True,  # All our tokenizers are reversible
             fingerprint=fingerprint,
+            originalText=request.text,  # Include original text for comparison
             frontendDigits=frontend_digits if frontend_digits else None,
             backendScaled=backend_scaled if backend_scaled else None,
             contentIds=content_ids if content_ids else None,

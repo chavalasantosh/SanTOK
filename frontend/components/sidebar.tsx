@@ -84,14 +84,14 @@ export function Sidebar({ activePage, onPageChange, isOpen, onClose }: SidebarPr
         }}
         transition={{ type: 'spring', damping: 30, stiffness: 300 }}
         className={cn(
-          "fixed left-0 top-16 z-50 h-[calc(100vh-4rem)] w-64 bg-background border-r",
-          "lg:translate-x-0 lg:static lg:inset-0",
-          "flex flex-col"
+          "fixed left-0 top-16 z-50 h-[calc(100vh-4rem)] w-64 bg-background border-r shadow-lg",
+          "lg:fixed lg:left-0 lg:top-16 lg:h-[calc(100vh-4rem)] lg:z-40 lg:block",
+          "flex flex-col transition-all duration-300 ease-in-out"
         )}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b">
-          <h2 className="text-lg font-semibold">Navigation</h2>
+        <div className="flex items-center justify-between p-4 border-b bg-muted/30">
+          <h2 className="text-lg font-semibold text-foreground">Navigation</h2>
           <Button
             variant="ghost"
             size="icon"
@@ -109,23 +109,21 @@ export function Sidebar({ activePage, onPageChange, isOpen, onClose }: SidebarPr
             const isActive = activePage === item.id
             
             return (
-            <motion.div
-              key={item.id}
-              whileHover={{ scale: 1.02, x: 4 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.2 }}
-            >
               <Button
+                key={item.id}
                 variant={isActive ? "default" : "ghost"}
                 className={cn(
-                  "w-full justify-start h-auto p-3 transition-all duration-200",
+                  "w-full justify-start h-auto p-3 transition-all duration-200 rounded-md",
                   isActive 
                     ? "bg-primary text-primary-foreground shadow-md" 
                     : "hover:bg-muted/50 hover:text-foreground"
                 )}
                 onClick={() => {
                   onPageChange(item.id)
-                  onClose()
+                  // Only close sidebar on mobile, keep it open on desktop
+                  if (window.innerWidth < 1024) {
+                    onClose()
+                  }
                 }}
               >
                 <Icon className={cn(
@@ -133,7 +131,7 @@ export function Sidebar({ activePage, onPageChange, isOpen, onClose }: SidebarPr
                   isActive ? "text-primary-foreground" : "text-muted-foreground"
                 )} />
                 <div className="flex flex-col items-start">
-                  <span className="font-medium">{item.name}</span>
+                  <span className="font-medium text-sm">{item.name}</span>
                   <span className={cn(
                     "text-xs transition-opacity duration-200",
                     isActive ? "opacity-90" : "opacity-70"
@@ -142,7 +140,6 @@ export function Sidebar({ activePage, onPageChange, isOpen, onClose }: SidebarPr
                   </span>
                 </div>
               </Button>
-            </motion.div>
             )
           })}
         </nav>
@@ -150,21 +147,33 @@ export function Sidebar({ activePage, onPageChange, isOpen, onClose }: SidebarPr
         {/* Footer */}
         <div className="p-4 border-t">
           <div className="space-y-2">
-            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-              <FileText className="h-4 w-4" />
-              <span>Documentation</span>
-            </div>
-            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-              <BookOpen className="h-4 w-4" />
-              <span>API Reference</span>
-            </div>
+            <Button
+              variant="ghost"
+              className="w-full justify-start h-auto p-3 transition-all duration-200 rounded-md hover:bg-muted/50 hover:text-foreground"
+              onClick={() => {
+                console.log('Documentation clicked');
+              }}
+            >
+              <FileText className="h-4 w-4 mr-3 text-muted-foreground" />
+              <span className="font-medium text-sm">Documentation</span>
+            </Button>
+            <Button
+              variant="ghost"
+              className="w-full justify-start h-auto p-3 transition-all duration-200 rounded-md hover:bg-muted/50 hover:text-foreground"
+              onClick={() => {
+                console.log('API Reference clicked');
+              }}
+            >
+              <BookOpen className="h-4 w-4 mr-3 text-muted-foreground" />
+              <span className="font-medium text-sm">API Reference</span>
+            </Button>
           </div>
           
-          <div className="mt-4 pt-4 border-t">
-            <p className="text-xs text-muted-foreground">
+          <div className="mt-8 pt-6 border-t">
+            <p className="text-sm font-semibold text-foreground">
               SanTOK v1.0.0
             </p>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-sm text-muted-foreground mt-1">
               Enterprise-grade text processing
             </p>
           </div>

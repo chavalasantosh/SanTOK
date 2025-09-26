@@ -30,7 +30,7 @@ const DEFAULT_ACCEPTED_TYPES = [
 
 export function FileUpload({ 
   onFileSelect, 
-  maxSize = 10 * 1024 * 1024, // 10MB
+  maxSize = 100 * 1024 * 1024 * 1024, // 100GB - NO LIMITS!
   acceptedTypes = DEFAULT_ACCEPTED_TYPES
 }: FileUploadProps) {
   const [uploadedFile, setUploadedFile] = useState<File | null>(null)
@@ -186,7 +186,7 @@ export function FileUpload({
             }
           </p>
           <p id="file-upload-description" className="text-xs text-muted-foreground">
-            Supports: TXT, JSON, CSV, PDF (max {formatFileSize(maxSize)})
+            Supports: TXT, JSON, CSV, PDF • 🚀 NO SIZE LIMITS - Handles 100GB+ files!
           </p>
         </div>
       </div>

@@ -266,6 +266,31 @@ export function TokenPreview({ result, viewMode, searchQuery }: TokenPreviewProp
       </CardHeader>
       
       <CardContent>
+        {/* Original Text Display */}
+        {result.originalText && (
+          <div className="space-y-3 mb-6">
+            <div className="flex items-center justify-between">
+              <h4 className="font-semibold text-sm">Original Text</h4>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={async () => {
+                  await navigator.clipboard.writeText(result.originalText || '')
+                  toast.success('Original text copied to clipboard')
+                }}
+              >
+                <Copy className="h-4 w-4 mr-2" />
+                Copy Original
+              </Button>
+            </div>
+            <div className="bg-muted/30 p-4 rounded-lg border">
+              <pre className="text-sm font-mono whitespace-pre-wrap break-words overflow-x-auto">
+                {result.originalText}
+              </pre>
+            </div>
+          </div>
+        )}
+        
         {filteredTokens.length === 0 ? (
           <div className="text-center py-8 text-muted-foreground">
             <Search className="h-8 w-8 mx-auto mb-2" />
