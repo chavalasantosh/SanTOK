@@ -51,7 +51,7 @@
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/santok.git
+   git clone https://github.com/chavalasantosh/santok.git
    cd santok
    ```
 
@@ -373,7 +373,7 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 ## 📞 Support
 
-- **GitHub Issues**: [Report bugs and request features](https://github.com/yourusername/santok/issues)
+- **GitHub Issues**: [Report bugs and request features](https://github.com/chavalasantosh/santok/issues)
 - **Documentation**: [Read the comprehensive docs](docs/)
 - **Email**: support@santok.dev
 - **Discord**: [Join our community](https://discord.gg/santok)
@@ -399,6 +399,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **SanTOK** - Making text tokenization simple, fast, and reliable! 🚀
 
-[⭐ Star this repo](https://github.com/yourusername/santok) • [🐛 Report Bug](https://github.com/yourusername/santok/issues) • [💡 Request Feature](https://github.com/yourusername/santok/issues)
+[⭐ Star this repo](https://github.com/chavalasantosh/santok) • [🐛 Report Bug](https://github.com/chavalasantosh/santok/issues) • [💡 Request Feature](https://github.com/chavalasantosh/santok/issues)
 
 </div>
