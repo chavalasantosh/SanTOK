@@ -1,65 +1,73 @@
-# SanTOK
+# SanTOK - Universal Text Tokenization Framework
 
-A comprehensive text tokenization system with mathematical analysis and statistical features.
+A comprehensive text tokenization system with mathematical analysis, statistical features, and a modern web interface.
 
-## Features
+## 🌟 Overview
 
+SanTOK is a complete tokenization framework that combines advanced mathematical algorithms with a modern React-based web interface. It provides multiple tokenization strategies, statistical analysis, and real-time processing capabilities for text analysis and natural language processing tasks.
+
+## ✨ Features
+
+### 🔧 Core Tokenization Engine
 - **Multiple Tokenization Strategies**: Whitespace, word boundary, character, and subword tokenization
 - **Mathematical Analysis**: Weighted sum calculation, digital root computation, and hash-based algorithms
 - **Statistical Features**: Mean, variance, entropy index, and balance index calculations
-- **Configurable**: Customizable preprocessing and processing parameters
-- **Pure Python**: No external dependencies required
-- **CLI Support**: Command-line interface for easy usage
+- **Configurable Processing**: Customizable preprocessing and processing parameters
+- **Pure Python**: No external dependencies required for core functionality
 
-## Installation
+### 🌐 Web Interface
+- **Modern React/Next.js Frontend**: Responsive, interactive web dashboard
+- **Real-time Processing**: Live tokenization and analysis
+- **File Upload Support**: Process large text files up to 100GB+
+- **Performance Analytics**: Comprehensive metrics and visualization
+- **Multiple Output Formats**: JSON, CSV, and human-readable formats
 
-### From Source
-   ```bash
+### 📊 Advanced Analytics
+- **Comprehensive Testing**: Advanced test suites for massive datasets
+- **Performance Monitoring**: Real-time performance metrics and analysis
+- **Academic Documentation**: Professional IEEE papers and research documentation
+- **Statistical Analysis**: Detailed mathematical analysis and comparison studies
+
+## 🚀 Quick Start
+
+### Installation
+
+#### From PyPI (Recommended)
+```bash
+pip install santok
+```
+
+#### From Source
+```bash
 git clone https://github.com/chavalasantosh/SanTOK.git
 cd SanTOK
 pip install -e .
-   ```
-
-### Development Installation
-   ```bash
-pip install -e .[dev]
 ```
-
-## Quick Start
 
 ### Basic Usage
 
+#### Python API
 ```python
 from santok import TextTokenizationEngine
 
-# Create tokenization engine instance
-tokenization_engine = TextTokenizationEngine(random_seed=12345, embedding_bit=False)
+# Create tokenization engine
+tokenization_engine = TextTokenizationEngine(
+    random_seed=12345,
+    embedding_bit=False,
+    normalize_case=True,
+    remove_punctuation=False,
+    collapse_repetitions=0
+)
 
 # Tokenize text
 result = tokenization_engine.tokenize("Hello World!", "whitespace")
 
-print(f"Tokenized Units: {result['tokens']}")
-print(f"Frontend Digit Values: {result['frontend_digits']}")
-print(f"Statistical Features: {result['features']}")
+print(f"Tokens: {result['tokens']}")
+print(f"Frontend Digits: {result['frontend_digits']}")
+print(f"Features: {result['features']}")
 ```
 
-### Convenience Functions
-
-```python
-from santok import tokenize_text, analyze_text_comprehensive, generate_text_summary
-
-# Quick tokenization
-result = tokenize_text("Hello World!")
-
-# Comprehensive analysis with all methods
-analysis = analyze_text_comprehensive("Hello World!")
-
-# Text summary generation
-summary = generate_text_summary("Hello World!")
-```
-
-### Command Line Usage
-
+#### Command Line Interface
 ```bash
 # Basic tokenization
 santok "Hello World!" --method whitespace
@@ -67,209 +75,203 @@ santok "Hello World!" --method whitespace
 # With statistical features
 santok "Hello World!" --method word --features
 
-# Comprehensive analysis with all methods
+# Comprehensive analysis
 santok "Hello World!" --analyze
 
-# From file
-santok --file input.txt --method character
-
-# Save to file
-santok "Hello World!" --analyze --output results.json
+# Process file
+santok --file input.txt --method character --output results.json
 ```
 
-## API Reference
+#### Web Interface
+```bash
+# Start the web server
+cd frontend
+npm install
+npm run dev
 
-### TextTokenizationEngine Class
-
-#### Constructor
-```python
-TextTokenizationEngine(random_seed=12345, embedding_bit=False, normalize_case=True, remove_punctuation=False, collapse_repetitions=0)
+# Or use the Python server
+python src/servers/main_server.py
 ```
 
-**Parameters:**
-- `random_seed` (int): Deterministic seed for reproducible tokenization
-- `embedding_bit` (bool): Enable embedding bit for additional variation in calculations
-- `normalize_case` (bool): Convert input text to lowercase for case-insensitive processing
-- `remove_punctuation` (bool): Strip punctuation and special characters from input
-- `collapse_repetitions` (int): Collapse repeated character sequences (0=disabled, 1=run-aware, N=collapse to N)
+## 🏗️ Project Structure
 
-#### Methods
+```
+SanTOK/
+├── 📁 santok/                    # Core Python package
+│   ├── __init__.py              # Package initialization
+│   ├── santok.py                # Main tokenization engine
+│   └── cli.py                   # Command-line interface
+├── 📁 frontend/                  # React/Next.js web interface
+│   ├── app/                     # Next.js app directory
+│   ├── components/              # React components
+│   ├── lib/                     # Utility libraries
+│   └── types/                   # TypeScript definitions
+├── 📁 src/                      # Backend source code
+│   ├── core/                    # Core tokenization algorithms
+│   ├── servers/                 # Web servers and APIs
+│   ├── tests/                   # Test suites and data
+│   └── examples/                # Usage examples
+├── 📁 docs/                     # Documentation and papers
+│   ├── papers/                  # Academic papers
+│   ├── guides/                  # User guides
+│   └── performance/             # Performance documentation
+├── 📁 data/                     # Sample data and outputs
+│   ├── samples/                 # Sample datasets
+│   └── outputs/                 # Generated outputs
+├── 📁 scripts/                  # Setup and deployment scripts
+├── setup.py                     # Python package configuration
+├── package.json                 # Frontend dependencies
+├── requirements.txt             # Python dependencies
+└── main.py                      # Main entry point
+```
 
-##### `tokenize(text, tokenization_method="whitespace", compute_features=True)`
-Tokenize text with specified method.
-
-**Parameters:**
-- `text` (str): Input text to tokenize
-- `tokenization_method` (str): Tokenization strategy ("whitespace", "word", "character", "subword")
-- `compute_features` (bool): Whether to compute statistical features
-
-**Returns:**
-- `dict`: Dictionary containing tokenized units, frontend digit values, and statistical features
-
-##### `analyze_text(text, tokenization_methods=None)`
-Analyze text using multiple tokenization strategies.
-
-**Parameters:**
-- `text` (str): Input text for analysis
-- `tokenization_methods` (list): List of tokenization methods to apply
-
-**Returns:**
-- `dict`: Dictionary containing analysis results for each tokenization method
-
-##### `generate_summary(text)`
-Generate comprehensive summary statistics for text analysis.
-
-**Parameters:**
-- `text` (str): Input text for summary generation
-
-**Returns:**
-- `dict`: Dictionary containing summary statistics
-
-## Tokenization Strategies
+## 🔬 Tokenization Methods
 
 ### Whitespace Tokenization
 Splits text by whitespace delimiters.
 ```python
 result = tokenization_engine.tokenize("Hello World!", "whitespace")
-# Tokenized Units: ["Hello", "World!"]
+# Tokens: ["Hello", "World!"]
 ```
 
 ### Word Boundary Tokenization
-Splits text into words (alphabetic characters only, removes punctuation).
+Splits text into words (alphabetic characters only).
 ```python
 result = tokenization_engine.tokenize("Hello World!", "word")
-# Tokenized Units: ["Hello", "World"]
+# Tokens: ["Hello", "World"]
 ```
 
 ### Character Tokenization
-Splits text into individual character units.
+Splits text into individual characters.
 ```python
 result = tokenization_engine.tokenize("Hello", "character")
-# Tokenized Units: ["H", "e", "l", "l", "o"]
+# Tokens: ["H", "e", "l", "l", "o"]
 ```
 
 ### Subword Tokenization
 Splits text into fixed-size subword units.
 ```python
-result = tokenization_engine.tokenize("Hello", "subword")
-# Tokenized Units: ["Hel", "lo"] (with default chunk_size=3)
+result = tokenization_engine.tokenize("Hello", "subword", chunk_size=3)
+# Tokens: ["Hel", "lo"]
 ```
 
-## Mathematical Features
+## 🧮 Mathematical Features
 
 ### Frontend Digits
 Small numbers (1-9) calculated using:
-1. Weighted sum: ASCII value × position
-2. Digital root: Reduced to single digit
-3. Hash method: Hash value mod 10
-4. Combined: (weighted_digit × 9 + hash_digit) % 9 + 1
+- **Weighted Sum**: ASCII value × position
+- **Digital Root**: 9-centric reduction
+- **Hash Value**: Polynomial rolling hash
+- **Combined Digit**: (Weighted_Digit × 9 + Hash_Digit) % 9 + 1
 
 ### Statistical Features
-- **Length Factor**: Number of tokens mod 10
-- **Balance Index**: Mean of frontend digits mod 10
-- **Entropy Index**: Variance of frontend digits mod 10
+- **Length Factor**: Number of tokens modulo 10
+- **Balance Index**: Mean of frontend digits modulo 10
+- **Entropy Index**: Variance of frontend digits modulo 10
+- **Mean & Variance**: Standard statistical measures
 
-## Configuration Options
+## 🌐 Web Interface Features
 
-### Sanitization
-- **Lowercase**: Convert all text to lowercase
-- **Drop Specials**: Remove punctuation and special characters
-- **Collapse Spaces**: Reduce multiple spaces to single space
-- **Collapse Repeats**: Handle repeated letters
+### Dashboard
+- **Real-time Processing**: Live tokenization and analysis
+- **File Upload**: Support for large text files
+- **Multiple Methods**: All tokenization strategies available
+- **Performance Metrics**: Real-time statistics and analysis
 
-### Processing
-- **Seed**: Deterministic random seed
-- **Embedding Bit**: Add controlled variation to calculations
+### Analytics
+- **Comprehensive Metrics**: Detailed performance analysis
+- **Visualization**: Charts and graphs for data analysis
+- **Export Options**: Multiple output formats
+- **History Tracking**: Previous analysis results
 
-## Examples
+## 📚 Documentation
 
-### Basic Tokenization
-```python
-from krisna_tokenizer import KrisnaTokenizer
+### Academic Papers
+- **Professional IEEE Paper**: Ready for publication
+- **Comparison Analysis**: Detailed tokenization method comparisons
+- **Performance Studies**: Comprehensive performance analysis
+- **Mathematical Documentation**: Complete mathematical framework
 
-tokenizer = KrisnaTokenizer()
-result = tokenizer.tokenize("We want a new television", "space")
+### User Guides
+- **Backend Integration**: API integration guide
+- **Performance Optimization**: Performance tuning guide
+- **Decoding Guide**: Text reconstruction methods
+- **API Reference**: Complete API documentation
 
-print(f"Tokens: {result['tokens']}")
-# Output: ['We', 'want', 'a', 'new', 'television']
+## 🧪 Testing
 
-print(f"Frontend Digits: {result['frontend_digits']}")
-# Output: [1, 3, 8, 1, 1]
-
-print(f"Features: {result['features']}")
-# Output: {'length_factor': 5, 'balance_index': 2, 'entropy_index': 7}
-```
-
-### Advanced Analysis
-```python
-# Analyze with all tokenization methods
-analysis = tokenizer.analyze_text("Hello World!")
-
-for method, result in analysis.items():
-    print(f"{method}: {len(result['tokens'])} tokens")
-    print(f"  Features: {result['features']}")
-```
-
-### Custom Configuration
-```python
-# Custom tokenizer with specific settings
-tokenizer = KrisnaTokenizer(
-    seed=99999,
-    embedding_bit=True,
-    use_lower=True,
-    drop_specials=True,
-    collapse_repeats_to=1
-)
-
-result = tokenizer.tokenize("HELLO!!! World!!!", "word")
-```
-
-## Command Line Interface
-
-### Basic Commands
+### Test Suites
 ```bash
-# Tokenize text
-krisna-tokenizer "Hello World!" --type space
+# Run all tests
+python -m pytest
 
-# Analyze with all methods
-krisna-tokenizer "Hello World!" --analyze
-
-# From file
-krisna-tokenizer --file input.txt --type word
-
-# Save results
-krisna-tokenizer "Hello World!" --analyze --output results.json
+# Run specific test categories
+python src/tests/advanced_comprehensive_test.py
+python src/tests/extreme_stress_test.py
+python src/tests/real_time_monitor.py
 ```
 
-### Advanced Options
+### Performance Testing
+- **Massive Dataset Testing**: Handles 100GB+ files
+- **Stress Testing**: Extreme load testing
+- **Real-time Monitoring**: Performance monitoring
+- **Comprehensive Analysis**: Detailed test reports
+
+## 🚀 Deployment
+
+### Development
 ```bash
-# Custom configuration
-krisna-tokenizer "Hello World!" --seed 99999 --embedding-bit --drop-specials
+# Install dependencies
+pip install -r requirements.txt
+cd frontend && npm install
 
-# Subword tokenization with custom chunk size
-krisna-tokenizer "Hello World!" --type subword --chunk-size 2
-
-# Quiet mode
-krisna-tokenizer "Hello World!" --quiet
+# Start development servers
+python src/servers/main_server.py  # Backend
+cd frontend && npm run dev         # Frontend
 ```
 
-## Mathematical Background
+### Production
+```bash
+# Build for production
+cd frontend && npm run build
 
-The tokenizer uses several mathematical concepts:
+# Deploy with Docker
+docker build -t santok .
+docker run -p 8000:8000 santok
+```
 
-1. **Weighted Sum**: Each character's ASCII value multiplied by its position
-2. **Digital Root**: Repeated digit sum until single digit (9-centric)
-3. **Hash Function**: h = h * 31 + char_code
-4. **Statistical Analysis**: Mean, variance, and entropy calculations
+## 📊 Performance
 
-## License
+- **Large File Support**: Handles files up to 100GB+
+- **High Performance**: Optimized algorithms for speed
+- **Memory Efficient**: Minimal memory footprint
+- **Scalable**: Supports concurrent processing
 
-MIT License - see LICENSE file for details.
+## 🤝 Contributing
 
-## Contributing
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests for new functionality
+5. Submit a pull request
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+## 📄 License
 
-## Support
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-For questions and support, please open an issue on GitHub.
+## 👨‍💻 Author
+
+**Santosh Chavala**
+- Email: chavalasantosh@example.com
+- GitHub: [@chavalasantosh](https://github.com/chavalasantosh)
+
+## 🙏 Acknowledgments
+
+- Academic research and mathematical framework development
+- Performance optimization and testing
+- Web interface design and implementation
+- Documentation and user experience
+
+---
+
+**SanTOK** - Universal Text Tokenization Framework for the modern era of natural language processing.
