@@ -1,34 +1,43 @@
-# Dependencies
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# Next.js build output
-.next/
-out/
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
 build/
+develop-eggs/
 dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 
-# Next.js cache
-.next/cache/
-
-# Environment variables
+# Virtual environments
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
 
-# IDE files
+# IDE
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# OS files
+# OS
 .DS_Store
 .DS_Store?
 ._*
@@ -37,27 +46,15 @@ dist/
 ehthumbs.db
 Thumbs.db
 
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-*.egg-info/
-dist/
-build/
-
 # Logs
 logs/
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Runtime data
-pids/
+pids
 *.pid
 *.seed
 *.pid.lock
@@ -66,10 +63,10 @@ pids/
 coverage/
 
 # nyc test coverage
-.nyc_output/
+.nyc_output
 
 # Dependency directories
-jspm_packages/
+node_modules/
 
 # Optional npm cache directory
 .npm
@@ -86,41 +83,10 @@ jspm_packages/
 # dotenv environment variables file
 .env
 
-# parcel-bundler cache (https://parceljs.org/)
-.cache
-.parcel-cache
-
-# webpack build output
-webpack-stats.json
-
-# TypeScript cache
-*.tsbuildinfo
-
-# Optional eslint cache
-.eslintcache
-
-# Microbundle cache
-.rpt2_cache/
-.rts2_cache_cjs/
-.rts2_cache_es/
-.rts2_cache_umd/
-
-# Optional REPL history
-.node_repl_history
-
-# Output of 'npm pack'
-*.tgz
-
-# Yarn Integrity file
-.yarn-integrity
-
-# parcel-bundler cache (https://parceljs.org/)
-.cache
-.parcel-cache
-
-# SvelteKit build / generate output
-.svelte-kit
-
 # Temporary folders
 tmp/
 temp/
+
+# Build artifacts
+build/
+dist/
