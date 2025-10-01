@@ -90,3 +90,6 @@ temp/
 # Build artifacts
 build/
 dist/
+
+# PyPI credentials (NEVER commit these!)
+.pypirc
