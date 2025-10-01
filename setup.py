@@ -10,7 +10,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="santok",
-    version="1.0.0",
+    version="1.0.1",
     author="Santosh Chavala",
     author_email="chavalasantosh@hotmail.com",
     description="SanTOK - A comprehensive text tokenization system with mathematical analysis and statistical features",
