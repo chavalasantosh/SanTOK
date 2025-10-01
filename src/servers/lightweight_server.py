@@ -20,9 +20,9 @@ try:
     from core.core_tokenizer import tokenize_text, reconstruct_from_tokens
     import core.core_tokenizer as KT
     from core.core_tokenizer import _content_id  # convenience
-    print("✅ Successfully imported engine module")
+    print("Successfully imported engine module")
 except ImportError as e:
-    print(f"❌ Error importing core_tokenizer.py: {e}")
+    print(f"Error importing core_tokenizer.py: {e}")
     sys.exit(1)
 
 # Tokenizer mapping
@@ -339,21 +339,21 @@ class CORSHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
 def main():
     PORT = 8000
     
-    print("🎯 SanTOK Simple Backend Server")
+    print("SanTOK Simple Backend Server")
     print("=" * 50)
-    print(f"📡 Starting server on port {PORT}")
-    print(f"🌐 Server will be available at: http://localhost:{PORT}")
-    print(f"🔄 Press Ctrl+C to stop the server")
+    print(f"Starting server on port {PORT}")
+    print(f"Server will be available at: http://localhost:{PORT}")
+    print(f"Press Ctrl+C to stop the server")
     print("=" * 50)
     
     try:
         with socketserver.TCPServer(("", PORT), CORSHTTPRequestHandler) as httpd:
-            print(f"✅ Server running at http://localhost:{PORT}")
+            print(f"Server running at http://localhost:{PORT}")
             httpd.serve_forever()
     except KeyboardInterrupt:
-        print("\n🛑 Server stopped by user")
+        print("\nServer stopped by user")
     except Exception as e:
-        print(f"❌ Error starting server: {e}")
+        print(f"Error starting server: {e}")
 
 if __name__ == "__main__":
     main()

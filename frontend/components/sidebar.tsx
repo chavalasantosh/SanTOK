@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { 
@@ -26,9 +25,15 @@ interface SidebarProps {
 
 const navigation = [
   {
+    id: 'home' as Page,
+    name: 'Home',
+    icon: Home,
+    description: 'Welcome to SanTOK wiki'
+  },
+  {
     id: 'dashboard' as Page,
     name: 'Dashboard',
-    icon: Home,
+    icon: BarChart3,
     description: 'Main tokenization interface'
   },
   {
@@ -64,29 +69,20 @@ export function Sidebar({ activePage, onPageChange, isOpen, onClose }: SidebarPr
   return (
     <>
       {/* Mobile Overlay */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-black/50 lg:hidden"
-            onClick={onClose}
-          />
-        )}
-      </AnimatePresence>
+      {isOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black/50 lg:hidden"
+          onClick={onClose}
+        />
+      )}
 
       {/* Sidebar */}
-      <motion.aside
-        initial={false}
-        animate={{
-          x: isOpen ? 0 : '-100%',
-        }}
-        transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+      <aside
         className={cn(
           "fixed left-0 top-16 z-50 h-[calc(100vh-4rem)] w-64 bg-background border-r shadow-lg",
           "lg:fixed lg:left-0 lg:top-16 lg:h-[calc(100vh-4rem)] lg:z-40 lg:block",
-          "flex flex-col transition-all duration-300 ease-in-out"
+          "flex flex-col transition-all duration-300 ease-in-out",
+          isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
         )}
       >
         {/* Header */}
@@ -178,7 +174,7 @@ export function Sidebar({ activePage, onPageChange, isOpen, onClose }: SidebarPr
             </p>
           </div>
         </div>
-      </motion.aside>
+      </aside>
     </>
   )
 }

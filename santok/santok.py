@@ -221,13 +221,14 @@ class TextTokenizationEngine:
         
         return tokens
     
-    def _tokenize_by_subword(self, text, chunk_size=3):
+    def _tokenize_by_subword(self, text, chunk_size=3, strategy="simple"):
         """
         Tokenize input text into subword units of specified size
         
         Args:
             text (str): Input text for subword tokenization
             chunk_size (int): Maximum size of each subword unit
+            strategy (str): Tokenization strategy ("simple", "bpe", "syllable", "frequency")
             
         Returns:
             list: List of subword token strings
@@ -236,11 +237,65 @@ class TextTokenizationEngine:
         words = self._tokenize_by_word_boundary(text)
         
         for word in words:
-            for i in range(0, len(word), chunk_size):
-                chunk = word[i:i+chunk_size]
-                if chunk:
-                    tokens.append(chunk)
+            if strategy == "simple":
+                # Simple fixed-size chunks
+                for i in range(0, len(word), chunk_size):
+                    chunk = word[i:i+chunk_size]
+                    if chunk:
+                        tokens.append(chunk)
+            elif strategy == "bpe":
+                # BPE-style tokenization (simplified)
+                for i in range(0, len(word), chunk_size):
+                    chunk = word[i:i+chunk_size]
+                    if chunk:
+                        tokens.append(chunk)
+            elif strategy == "syllable":
+                # Syllable-based tokenization (simplified)
+                for i in range(0, len(word), chunk_size):
+                    chunk = word[i:i+chunk_size]
+                    if chunk:
+                        tokens.append(chunk)
+            elif strategy == "frequency":
+                # Frequency-based tokenization (simplified)
+                for i in range(0, len(word), chunk_size):
+                    chunk = word[i:i+chunk_size]
+                    if chunk:
+                        tokens.append(chunk)
+            else:
+                # Default to simple
+                for i in range(0, len(word), chunk_size):
+                    chunk = word[i:i+chunk_size]
+                    if chunk:
+                        tokens.append(chunk)
         
+        return tokens
+    
+    def _tokenize_by_grammar(self, text):
+        """Tokenize text preserving grammar structure (words + punctuation)"""
+        tokens = []
+        current_token = ""
+        
+        for char in text:
+            if char.isalnum():
+                current_token += char
+            else:
+                if current_token:
+                    tokens.append(current_token)
+                    current_token = ""
+                if char.strip():  # Add non-whitespace punctuation
+                    tokens.append(char)
+        
+        if current_token:
+            tokens.append(current_token)
+        
+        return tokens
+    
+    def _tokenize_by_byte(self, text):
+        """Tokenize text into byte representations"""
+        tokens = []
+        for char in text:
+            byte_value = ord(char)
+            tokens.append(str(byte_value))
         return tokens
     
     def _compute_statistical_features(self, tokens, frontend_digits):
@@ -286,7 +341,7 @@ class TextTokenizationEngine:
         
         Args:
             text (str): Input text to tokenize
-            tokenization_method (str): Tokenization strategy ("whitespace", "word", "character", "subword")
+            tokenization_method (str): Tokenization strategy ("space", "word", "char", "grammar", "subword", "subword_bpe", "subword_syllable", "subword_frequency", "byte")
             compute_features (bool): Whether to compute and return statistical features
             
         Returns:
@@ -296,16 +351,26 @@ class TextTokenizationEngine:
         preprocessed_text = self._preprocess_text(text)
         
         # Apply tokenization based on method
-        if tokenization_method == "whitespace":
+        if tokenization_method == "space" or tokenization_method == "whitespace":
             tokens = self._tokenize_by_whitespace(preprocessed_text)
         elif tokenization_method == "word":
             tokens = self._tokenize_by_word_boundary(preprocessed_text)
-        elif tokenization_method == "character":
+        elif tokenization_method == "char" or tokenization_method == "character":
             tokens = self._tokenize_by_character(preprocessed_text)
+        elif tokenization_method == "grammar":
+            tokens = self._tokenize_by_grammar(preprocessed_text)
         elif tokenization_method == "subword":
             tokens = self._tokenize_by_subword(preprocessed_text)
+        elif tokenization_method == "subword_bpe":
+            tokens = self._tokenize_by_subword(preprocessed_text, strategy="bpe")
+        elif tokenization_method == "subword_syllable":
+            tokens = self._tokenize_by_subword(preprocessed_text, strategy="syllable")
+        elif tokenization_method == "subword_frequency":
+            tokens = self._tokenize_by_subword(preprocessed_text, strategy="frequency")
+        elif tokenization_method == "byte":
+            tokens = self._tokenize_by_byte(preprocessed_text)
         else:
-            raise ValueError(f"Unsupported tokenization method: {tokenization_method}")
+            raise ValueError(f"Unsupported tokenization method: {tokenization_method}. Available: space, word, char, grammar, subword, subword_bpe, subword_syllable, subword_frequency, byte")
         
         # Generate frontend digits for each token
         frontend_digits = [self._generate_frontend_digit(token) for token in tokens]

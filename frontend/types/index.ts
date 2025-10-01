@@ -84,6 +84,6 @@ export interface VectorSearchResult {
   cluster: number
 }
 
-export type Page = 'dashboard' | 'compression' | 'performance' | 'about'
+export type Page = 'home' | 'dashboard' | 'compression' | 'performance' | 'about'
 export type ViewMode = 'text' | 'tokens' | 'ids'
 export type Theme = 'light' | 'dark' | 'system'

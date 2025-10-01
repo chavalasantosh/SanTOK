@@ -1,9 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
 import { Header } from '@/components/header'
 import { Sidebar } from '@/components/sidebar'
+import { Home as HomePage } from '@/components/home'
 import { Dashboard } from '@/components/dashboard'
 import { CompressionExplorer } from '@/components/compression-explorer'
 import { PerformanceLab } from '@/components/performance-lab'
@@ -12,10 +12,10 @@ import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts'
 import { KeyboardShortcuts } from '@/components/keyboard-shortcuts'
 import { cn } from '@/lib/utils'
 
-type Page = 'dashboard' | 'compression' | 'performance' | 'about'
+type Page = 'home' | 'dashboard' | 'compression' | 'performance' | 'about'
 
 export default function Home() {
-  const [activePage, setActivePage] = useState<Page>('dashboard')
+  const [activePage, setActivePage] = useState<Page>('home')
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [showShortcuts, setShowShortcuts] = useState(false)
 
@@ -24,6 +24,8 @@ export default function Home() {
     const checkScreenSize = () => {
       if (window.innerWidth >= 1024) { // lg breakpoint
         setSidebarOpen(true)
+      } else {
+        setSidebarOpen(false)
       }
     }
     
@@ -32,13 +34,6 @@ export default function Home() {
     
     return () => window.removeEventListener('resize', checkScreenSize)
   }, [])
-
-  // Keep sidebar open when navigating between pages on desktop
-  useEffect(() => {
-    if (window.innerWidth >= 1024) {
-      setSidebarOpen(true)
-    }
-  }, [activePage])
 
   // Enable keyboard shortcuts
   useKeyboardShortcuts()
@@ -65,6 +60,8 @@ export default function Home() {
 
   const renderPage = () => {
     switch (activePage) {
+      case 'home':
+        return <HomePage />
       case 'dashboard':
         return <Dashboard />
       case 'compression':
@@ -74,7 +71,7 @@ export default function Home() {
       case 'about':
         return <About />
       default:
-        return <Dashboard />
+        return <HomePage />
     }
   }
 
@@ -97,16 +94,9 @@ export default function Home() {
           "flex-1 min-h-screen transition-all duration-300 ease-in-out",
           sidebarOpen ? "lg:ml-64" : "lg:ml-0"
         )}>
-          <motion.div
-            key={activePage}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="p-6"
-          >
+          <div className="p-6">
             {renderPage()}
-          </motion.div>
+          </div>
         </main>
       </div>
 

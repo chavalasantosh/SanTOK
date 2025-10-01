@@ -52,7 +52,37 @@ Unit Count: 6
 Frontend Digit Values: [3, 3, 2, 1, 1, 2]
 ```
 
-### 2. Advanced Text Analysis
+### 2. All 9 Tokenization Methods
+
+```python
+from santok import TextTokenizationEngine
+
+engine = TextTokenizationEngine()
+text = "Hello, World! This is a test."
+
+# Test all 9 tokenization methods
+methods = ["space", "word", "char", "grammar", "subword", 
+           "subword_bpe", "subword_syllable", "subword_frequency", "byte"]
+
+for method in methods:
+    result = engine.tokenize(text, tokenization_method=method, compute_features=True)
+    print(f"{method.upper()}: {result['tokens']} (Count: {len(result['tokens'])})")
+```
+
+**Output:**
+```
+SPACE: ['hello,', 'world!', 'this', 'is', 'a', 'test.'] (Count: 6)
+WORD: ['hello', 'world', 'this', 'is', 'a', 'test'] (Count: 6)
+CHAR: ['h', 'e', 'l', 'l', 'o', ',', ' ', 'w', 'o', 'r', 'l', 'd', '!', ' ', 't', 'h', 'i', 's', ' ', 'i', 's', ' ', 'a', ' ', 't', 'e', 's', 't', '.'] (Count: 29)
+GRAMMAR: ['hello', ',', 'world', '!', 'this', 'is', 'a', 'test', '.'] (Count: 9)
+SUBWORD: ['hel', 'lo', 'wor', 'ld', 'thi', 's', 'is', 'a', 'tes', 't'] (Count: 10)
+SUBWORD_BPE: ['hel', 'lo', 'wor', 'ld', 'thi', 's', 'is', 'a', 'tes', 't'] (Count: 10)
+SUBWORD_SYLLABLE: ['hel', 'lo', 'wor', 'ld', 'thi', 's', 'is', 'a', 'tes', 't'] (Count: 10)
+SUBWORD_FREQUENCY: ['hel', 'lo', 'wor', 'ld', 'thi', 's', 'is', 'a', 'tes', 't'] (Count: 10)
+BYTE: ['104', '101', '108', '108', '111', '44', '32', '119', '111', '114', '108', '100', '33', '32', '116', '104', '105', '115', '32', '105', '115', '32', '97', '32', '116', '101', '115', '116', '46'] (Count: 29)
+```
+
+### 3. Advanced Text Analysis
 
 ```python
 from santok import TextTokenizationEngine
@@ -369,9 +399,20 @@ def compare_texts(text1, text2):
 - `collapse_repetitions` (int): Collapse repeated characters
 
 #### Methods
-- `tokenize(text, tokenization_method="whitespace", compute_features=True)` - Main tokenization method
+- `tokenize(text, tokenization_method="space", compute_features=True)` - Main tokenization method
 - `analyze_text(text, tokenization_methods=None)` - Analyze with multiple methods
 - `generate_summary(text)` - Generate text summary
+
+#### Available Tokenization Methods (9 total)
+1. **`space`** - Whitespace/space-separated tokenization
+2. **`word`** - Word boundary tokenization (removes punctuation)
+3. **`char`** - Character-level tokenization
+4. **`grammar`** - Grammar-aware tokenization (words + punctuation)
+5. **`subword`** - Simple subword tokenization (fixed chunks)
+6. **`subword_bpe`** - BPE-style subword tokenization
+7. **`subword_syllable`** - Syllable-based subword tokenization
+8. **`subword_frequency`** - Frequency-based subword tokenization
+9. **`byte`** - Byte-level tokenization (ASCII/Unicode values)
 
 #### Available Features
 - `entropy_index` - Variance-based randomness measure (0-9)

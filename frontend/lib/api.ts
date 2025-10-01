@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { TokenizationResult, TokenizerOptions, CompressionAnalysis } from '@/types'
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || (typeof window !== 'undefined' ? `${window.location.protocol}//${window.location.hostname}:8000` : 'http://localhost:8000')
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -54,6 +54,18 @@ export const tokenizeText = async (
   options: TokenizerOptions
 ): Promise<TokenizationResult> => {
   try {
+    console.log('Making API request to:', API_BASE_URL + '/tokenize')
+    console.log('Request payload:', {
+      text,
+      tokenizer_type: options.tokenizerType,
+      lower: options.lowercase,
+      drop_specials: options.dropSpecials,
+      collapse_repeats: options.collapseRepeats,
+      embedding: options.enableEmbedding,
+      seed: options.seed,
+      embedding_bit: options.embeddingBit,
+    })
+    
     const response = await api.post('/tokenize', {
       text,
       tokenizer_type: options.tokenizerType,
@@ -65,9 +77,18 @@ export const tokenizeText = async (
       embedding_bit: options.embeddingBit,
     })
     
+    console.log('API response received:', response.data)
     return response.data
   } catch (error: any) {
-    console.error('Tokenization error:', error)
+    console.error('Tokenization error details:', {
+      message: error.message,
+      code: error.code,
+      status: error.response?.status,
+      statusText: error.response?.statusText,
+      data: error.response?.data,
+      url: error.config?.url,
+      baseURL: error.config?.baseURL
+    })
     if (error.code === 'ECONNABORTED') {
       throw new Error('Request timeout. Please try with shorter text.')
     }
@@ -160,18 +181,59 @@ export const getMockTokenizationResult = (
   text: string,
   options: TokenizerOptions
 ): TokenizationResult => {
-  const tokens = text.split(' ').map((word, index) => ({
-    text: word,
+  let tokens: any[] = []
+  
+  switch (options.tokenizerType) {
+    case 'space':
+      tokens = text.split(/\s+/).filter(token => token.length > 0)
+      break
+    case 'word':
+      // Split on word boundaries, keeping punctuation
+      tokens = text.split(/(\W+)/).filter(token => token.length > 0)
+      break
+    case 'char':
+      tokens = text.split('')
+      break
+    case 'grammar':
+      // Grammar-aware tokenization - split on sentence boundaries
+      tokens = text.split(/([.!?]+)/).filter(token => token.length > 0)
+      break
+    case 'subword':
+      // Simple subword tokenization - split on common separators
+      tokens = text.split(/([\/_\-\.])/).filter(token => token.length > 0)
+      break
+    case 'bpe':
+      // Byte Pair Encoding simulation
+      tokens = text.match(/.{1,3}/g) || []
+      break
+    case 'syllable':
+      // Syllable-based tokenization simulation
+      tokens = text.split(/([aeiouAEIOU]+)/).filter(token => token.length > 0)
+      break
+    case 'frequency':
+      // Frequency-based tokenization simulation
+      tokens = text.split(/([a-zA-Z]+)/).filter(token => token.length > 0)
+      break
+    case 'byte':
+      // Byte-level tokenization
+      tokens = Array.from(text).map(char => char.charCodeAt(0).toString())
+      break
+    default:
+      tokens = text.split(/\s+/).filter(token => token.length > 0)
+  }
+
+  const tokenObjects = tokens.map((token, index) => ({
+    text: token,
     id: index,
-    position: text.indexOf(word),
-    length: word.length,
-    type: 'word',
+    position: text.indexOf(token),
+    length: token.length,
+    type: options.tokenizerType,
     color: `hsl(${(index * 137.5) % 360}, 70%, 50%)`,
   }))
 
   return {
-    tokens,
-    tokenCount: tokens.length,
+    tokens: tokenObjects,
+    tokenCount: tokenObjects.length,
     characterCount: text.length,
     tokenizerType: options.tokenizerType,
     processingTime: Math.random() * 100 + 50,
