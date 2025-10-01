@@ -5,7 +5,7 @@ A comprehensive text tokenization system with mathematical analysis and statisti
 
 __version__ = "1.0.0"
 __author__ = "Santosh Chavala"
-__email__ = "chavalasantosh@example.com"
+__email__ = "chavalasantosh@hotmail.com"
 
 # Import the main class and convenience functions
 from .santok import (
